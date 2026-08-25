@@ -3,807 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="C.T.S. SARLU - Votre Partenaire Technique B2B en Construction Métallique & BTP en Côte d'Ivoire. Chiffrage express sous 48h.">
-    <title>C.T.S. SARLU | Construction Métallique & BTP</title>
+    <meta name="description" content="C.T.S. SARLU - Devis express BTP en 48h.">
+    <title>C.T.S. SARLU - Devis Express</title>
     <style>
-        /* ==========================================================================
-           COUCHE 1 : TOKENS CSS (Variables & Design System)
-           ========================================================================== */
+        /* DESIGN SYSTEM - VARIABLES */
         :root {
-            /* Palette de Couleurs BTP */
-            --color-primary: #ea580c; 
-            --color-primary-dark: #c2410c;
-            
-            /* Tons ardoise/acier professionnels */
-            --color-dark: #2c3e50; 
-            --color-dark-muted: #475f77; 
-            
-            --color-light: #f8fafc;
-            --color-white: #ffffff;
-            --color-gray: #64748b;
-            --color-gray-light: #e2e8f0;
-            --color-whatsapp: #25D366;
-            --color-whatsapp-dark: #128C7E;
-            
-            /* Typographie */
-            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            
-            /* Espacements */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 6rem;
-            
-            /* Bordures & Ombres */
-            --radius-md: 0.5rem;
-            --radius-lg: 1rem;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            
-            /* Transitions (60 FPS focus) */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --bg-color: #ffffff;
+            --bg-body: #f1f5f9; /* Slate 100 */
+            --text-main: #0f172a; /* Slate 900 - WCAG AAA */
+            --text-muted: #475569; /* Slate 600 */
+            --primary: #c2410c; /* Orange foncé contrasté */
+            --primary-light: #fff7ed;
+            --whatsapp: #075e54; /* WA Dark - WCAG AAA sur blanc */
+            --border: #e2e8f0;
+            --tap-size: 56px; /* Cible tactile de 56px minimum */
+            --font-base: 16px; /* Anti-zoom automatique */
+            --radius: 12px;
         }
 
-        /* ==========================================================================
-           RESET & BASE
-           ========================================================================== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        /* RESET & BASE */
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: system-ui, -apple-system, sans-serif; 
         }
         
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--color-light);
-            color: var(--color-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* ==========================================================================
-           COMPOSANTS UI
-           ========================================================================== */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-sm);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            transition: all var(--transition-fast);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-align: center;
-            will-change: transform, background-color;
-        }
-
-        .btn-whatsapp {
-            background-color: var(--color-whatsapp);
-            color: var(--color-white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-whatsapp:hover, .btn-whatsapp:active {
-            background-color: var(--color-whatsapp-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-primary:hover, .btn-primary:active {
-            background-color: var(--color-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card {
-            background-color: var(--color-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-md);
-            box-shadow: var(--shadow-md);
-            transition: transform var(--transition-smooth);
-            will-change: transform;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-dark);
-        }
-
-        /* ==========================================================================
-           LAYOUT SECTIONS
-           ========================================================================== */
-        /* Header & Navbar */
-        header {
-            background-color: var(--color-white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: var(--spacing-sm) 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--color-dark);
-            text-decoration: none;
-            letter-spacing: -0.5px;
+        body { 
+            background: var(--bg-body); 
+            color: var(--text-main); 
+            font-size: var(--font-base); 
+            line-height: 1.5; 
+            -webkit-font-smoothing: antialiased; 
         }
         
-        .logo span {
-            color: var(--color-primary);
+        /* LAYOUT (Mobile First centré sur Desktop) */
+        .app-container { 
+            max-width: 480px; 
+            margin: 0 auto; 
+            background: var(--bg-color); 
+            min-height: 100vh; 
+            position: relative; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.05); 
+            padding-bottom: 100px; /* Espace pour la Thumb Zone */
         }
-
-        /* Floating CTA Mobile */
-        .floating-cta {
-            position: fixed;
-            bottom: var(--spacing-sm);
-            left: var(--spacing-sm);
-            right: var(--spacing-sm);
-            z-index: 90;
-            display: none;
+        
+        /* TRANSITIONS SCREENS */
+        .screen { 
+            display: none; 
+            animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            padding: 24px; 
         }
-
-        .floating-cta .btn {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.125rem;
+        .screen.active { display: block; }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
         }
-
-        /* Hero Section (Above the Fold) */
-        .hero {
-            padding: var(--spacing-lg) 0 var(--spacing-md) 0;
-            background: linear-gradient(to bottom right, var(--color-dark), var(--color-dark-muted));
-            color: var(--color-white);
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        
+        /* TYPOGRAPHIE (Zéro Jargon, Impact Visuel) */
+        h1 { 
+            font-size: 28px; 
+            font-weight: 900; 
+            margin-bottom: 16px; 
+            line-height: 1.1; 
+            letter-spacing: -0.5px; 
         }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
+        p { 
+            margin-bottom: 24px; 
+            color: var(--text-muted); 
+            font-size: 18px;
         }
-
-        .hero h1 span {
-            color: var(--color-primary);
+        .highlight { color: var(--primary); }
+        
+        /* THUMB ZONE (Fixé en bas, max-width pour suivre le conteneur) */
+        .thumb-zone { 
+            position: fixed; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 100%; 
+            max-width: 480px; 
+            padding: 16px 24px 24px 24px; 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(10px); 
+            border-top: 1px solid var(--border); 
+            z-index: 100; 
         }
-
-        .hero p.subtitle {
-            font-size: clamp(1.125rem, 3vw, 1.5rem);
-            color: var(--color-white);
-            opacity: 0.9;
-            margin-bottom: var(--spacing-md);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        
+        /* BOUTONS (Cibles massives) */
+        button, .btn { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 100%; 
+            min-height: var(--tap-size); 
+            border-radius: var(--radius); 
+            font-size: 18px; 
+            font-weight: 800; 
+            border: none; 
+            cursor: pointer; 
+            transition: transform 0.1s, background 0.2s; 
         }
-
-        .hero-engagements {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-            max-width: 600px;
-            margin: 0 auto var(--spacing-md) auto;
-            text-align: left;
+        button:active { transform: scale(0.98); }
+        .btn-primary { background: var(--text-main); color: #fff; }
+        .btn-wa { background: var(--whatsapp); color: #fff; }
+        .btn-wa::before { content: '💬'; margin-right: 8px; }
+        
+        /* CARTES DE CHOIX */
+        .choice-grid { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+        .choice-card { 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-start;
+            padding: 16px 20px; 
+            min-height: 72px; 
+            border: 2px solid var(--border); 
+            border-radius: var(--radius); 
+            font-size: 18px; 
+            font-weight: 700; 
+            background: #fff; 
+            color: var(--text-main);
+            text-align: left; 
         }
-
-        .engagement-item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-xs);
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: var(--spacing-sm);
-            border-radius: var(--radius-md);
-            backdrop-filter: blur(4px);
+        .choice-card:hover, .choice-card:active { 
+            border-color: var(--primary); 
+            background: var(--primary-light); 
         }
-
-        .engagement-icon {
-            color: var(--color-primary);
-            font-size: 1.5rem;
-            line-height: 1;
+        .choice-icon { font-size: 28px; margin-right: 16px; }
+        
+        /* FORMULAIRE (Claviers adaptés) */
+        .form-group { margin-bottom: 24px; }
+        label { 
+            display: block; 
+            font-weight: 800; 
+            margin-bottom: 8px; 
+            font-size: 18px; 
         }
-
-        /* Sections de Contenu */
-        .section {
-            padding: var(--spacing-lg) 0;
-        }
-
-        .bg-white {
-            background-color: var(--color-white);
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-        }
-
-        @media (min-width: 768px) {
-            .grid-2 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        .reference-tag {
-            display: inline-block;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .grid-4 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-md);
-        }
-
-        @media (min-width: 640px) {
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 1024px) {
-            .grid-4 { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        .expertise-icon {
-            width: 48px;
-            height: 48px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .expertise-icon svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* Section Formulaire WhatsApp */
-        .form-section {
-            background-color: var(--color-dark);
-            color: var(--color-white);
-            padding: var(--spacing-lg) 0;
-            border-radius: var(--radius-lg);
-            margin: var(--spacing-md) var(--spacing-sm);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: var(--spacing-md);
-            position: relative;
-        }
-
-        .form-label {
+        .hint { 
             display: block;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 600;
-            color: var(--color-light);
+            font-size: 14px; 
+            color: var(--text-muted); 
+            margin-top: 4px; 
+            font-weight: normal; 
         }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem;
-            border-radius: var(--radius-md);
-            border: 2px solid transparent;
-            background-color: var(--color-white);
-            color: var(--color-dark);
-            font-size: 1rem;
-            font-family: var(--font-sans);
-            transition: all var(--transition-fast);
-            appearance: none;
+        input { 
+            width: 100%; 
+            min-height: var(--tap-size); 
+            padding: 0 16px; 
+            font-size: 18px; 
+            border: 2px solid var(--border); 
+            border-radius: var(--radius); 
+            background: var(--bg-body); 
+            color: var(--text-main);
+            outline: none; 
+            transition: border 0.2s, background 0.2s; 
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
+        input:focus { 
+            border-color: var(--primary); 
+            background: #fff; 
         }
         
-        .select-wrapper {
-            position: relative;
+        /* HEADER LOGO */
+        .header { 
+            padding: 24px 24px 0 24px; 
+            font-weight: 900; 
+            font-size: 22px; 
+            letter-spacing: -1px; 
         }
         
-        .select-wrapper::after {
-            content: "▼";
-            font-size: 0.8rem;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-dark);
-            pointer-events: none;
+        .back-btn { 
+            background: none; 
+            border: none; 
+            color: var(--text-muted); 
+            font-size: 16px; 
+            font-weight: 700; 
+            padding: 0; 
+            min-height: 44px; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: flex-start; 
+            width: auto; 
+            margin-bottom: 16px; 
         }
-
-        /* Champs d'entrée personnalisés dynamiques */
-        .custom-input-field {
-            display: none;
-            margin-top: var(--spacing-sm);
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all var(--transition-smooth);
+        
+        /* BULLET POINTS ACCUEIL */
+        .benefits { list-style: none; margin: 32px 0; }
+        .benefits li { 
+            display: flex; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            font-size: 18px;
         }
-
-        .custom-input-field.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: var(--spacing-md) 0;
-            color: var(--color-gray);
-            font-size: 0.875rem;
-        }
-
-        /* Animations d'entrée */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .benefits .icon { font-size: 24px; margin-right: 16px; }
     </style>
 </head>
 <body>
-
-    <!-- ==========================================================================
-         COUCHE 2 : HTML SHELL (Structure Sémantique)
-         ========================================================================== -->
-    
-    <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">C.T.S. <span>SARLU</span></a>
-            <a href="#devis" class="btn btn-whatsapp" id="headerCta">
-                Demander un chiffrage express
-            </a>
+    <div class="app-container">
+        <div class="header">C.T.S. <span class="highlight">SARLU</span></div>
+        
+        <!-- ÉCRAN 1 : L'AMORCE -->
+        <div id="screen-home" class="screen active">
+            <h1>Vos projets BTP, livrés sans souci.</h1>
+            <p>Le partenaire technique ivoirien des professionnels. Fini l'attente et l'incertitude.</p>
+            
+            <ul class="benefits">
+                <li><span class="icon">⚡</span> Chiffrage express sous 48h</li>
+                <li><span class="icon">🏗️</span> Équipes 100% autonomes</li>
+                <li><span class="icon">🇨🇮</span> Déploiement national</li>
+            </ul>
+            
+            <div class="thumb-zone">
+                <button class="btn-primary" onclick="showScreen('screen-choice')">Démarrer mon projet</button>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <!-- Section 1 : En-tête & Proposition de Valeur -->
-        <section class="hero">
-            <div class="container reveal">
-                <h1>Votre Partenaire Technique B2B en <span>Construction Métallique & BTP</span> en Côte d'Ivoire.</h1>
-                <p class="subtitle">Charpentes industrielles, Châteaux d'eau métalliques, Hangars de stockage et Menuiserie Aluminium.</p>
+        <!-- ÉCRAN 2 : LE CHOIX (TAP 1) -->
+        <div id="screen-choice" class="screen">
+            <button class="back-btn" onclick="showScreen('screen-home')">← Retour</button>
+            <h1>Quel est votre besoin ?</h1>
+            
+            <div class="choice-grid">
+                <button class="choice-card" onclick="selectProject('Charpente Métallique')">
+                    <span class="choice-icon">🏭</span> Charpente Métallique
+                </button>
+                <button class="choice-card" onclick="selectProject('Château d\'eau')">
+                    <span class="choice-icon">💧</span> Château d'eau
+                </button>
+                <button class="choice-card" onclick="selectProject('Hangar de stockage')">
+                    <span class="choice-icon">🏢</span> Hangar de stockage
+                </button>
+                <button class="choice-card" onclick="selectProject('Menuiserie Aluminium')">
+                    <span class="choice-icon">🪟</span> Menuiserie Aluminium
+                </button>
+            </div>
+        </div>
+
+        <!-- ÉCRAN 3 : LE CHIFFRAGE (TAP 2 & 3) -->
+        <div id="screen-form" class="screen">
+            <button class="back-btn" onclick="showScreen('screen-choice')">← Changer de projet</button>
+            <h1>Parlons de votre <span class="highlight" id="project-name-display">projet</span>.</h1>
+            
+            <div style="margin-top: 32px;">
+                <div class="form-group">
+                    <label for="surface">
+                        Surface estimée (m²)
+                        <span class="hint">Optionnel. Laissez vide si vous ne savez pas.</span>
+                    </label>
+                    <!-- Règle d'or : Clavier adapté numeric -->
+                    <input type="number" id="surface" inputmode="numeric" placeholder="Ex: 500">
+                </div>
                 
-                <div class="hero-engagements">
-                    <div class="engagement-item">
-                        <div class="engagement-icon">⏱</div>
-                        <div>
-                            <strong>Étude & Devis express</strong>
-                            <p>Chiffrage technique transmis sous 48h à 72h.</p>
-                        </div>
-                    </div>
-                    <div class="engagement-item">
-                        <div class="engagement-icon">🏗</div>
-                        <div>
-                            <strong>Autonomie Logistique & Levage</strong>
-                            <p>Mobilisation de nos propres équipements et équipes sur l'ensemble du territoire national.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#devis" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2rem;">
-                    Démarrer mon projet maintenant
-                </a>
-            </div>
-        </section>
-
-        <!-- Section 2 : Références -->
-        <section class="section bg-white">
-            <div class="container reveal">
-                <h2 class="section-title">Nos Références Institutionnelles</h2>
-                <div class="grid-2">
-                    <article class="card">
-                        <span class="reference-tag">Bailleurs Internationaux</span>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--color-dark);">Projets PADFA & PDC2V</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">Sous-traitance TENSY Services</p>
-                        <ul style="padding-left: 1.5rem; color: var(--color-dark-muted);">
-                            <li>Confection de 4 charpentes lourdes</li>
-                            <li>Édification de 34 hangars agricoles</li>
-                            <li>Construction de 3 ateliers de séchage et 10 magasins</li>
-                            <li>Châteaux d'eau métalliques sur forages solaires</li>
-                        </ul>
-                    </article>
-                    
-                    <article class="card">
-                        <span class="reference-tag">Secteur Industriel</span>
-                        <h3 style="margin-bottom: 0.5rem; color: var(--color-dark);">Imprimerie SAAC</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem; margin-bottom: 1rem;">Zone Industrielle PK24 Akoupé-Zeudji</p>
-                        <ul style="padding-left: 1.5rem; color: var(--color-dark-muted);">
-                            <li>Construction complète du hangar de l'imprimerie</li>
-                            <li>Confection et pose de portail lourd industriel</li>
-                            <li>Aménagement de niches de sécurité</li>
-                            <li>Travaux de vitrerie et menuiserie aluminium</li>
-                        </ul>
-                    </article>
+                <div class="form-group">
+                    <label for="phone">
+                        Où pouvons-nous vous joindre ?
+                        <span class="hint">Votre numéro pour recevoir le devis.</span>
+                    </label>
+                    <!-- Règle d'or : Clavier adapté tel -->
+                    <input type="tel" id="phone" inputmode="tel" placeholder="+225 00 00 00 00 00">
                 </div>
             </div>
-        </section>
-
-        <!-- Section 3 : Expertise -->
-        <section class="section">
-            <div class="container reveal">
-                <h2 class="section-title">Notre Expertise Technique</h2>
-                <div class="grid-4">
-                    <div class="card">
-                        <div class="expertise-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 21H2V19H3V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V19H16V13H21C21.5523 13 22 13.4477 22 14V21ZM13 19V5H5V19H13ZM19 19V15H15V19H19ZM7 11H11V13H7V11ZM7 7H11V9H7V7Z"/></svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Construction Métallique</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem;">Hangars industriels et agricoles, portails lourds, escaliers, passerelles, charpentes sur-mesure.</p>
-                    </div>
-                    <div class="card">
-                        <div class="expertise-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 3L2 12H5V20H19V12H22L12 3ZM12 5.82843L17 10.8284V18H7V10.8284L12 5.82843ZM12 11C10.8954 11 10 11.8954 10 13C10 14.1046 10.8954 15 12 15C13.1046 15 14 14.1046 14 13C14 11.8954 13.1046 11 12 11Z"/></svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Ouvrages Hydrauliques</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem;">Confection et pose sécurisée de châteaux d'eau métalliques pour forages et pompes solaires.</p>
-                    </div>
-                    <div class="card">
-                        <div class="expertise-icon">
-                            <svg viewBox="0 0 24 24"><path d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM5 5V19H19V5H5ZM11 7H13V17H11V7Z"/></svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">Menuiserie Aluminium</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem;">Baies vitrées, façades vitrées architecturales, portes, fenêtres et vitrerie technique.</p>
-                    </div>
-                    <div class="card">
-                        <div class="expertise-icon">
-                            <svg viewBox="0 0 24 24"><path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3ZM5 5H19V19H5V5ZM7 7H17V9H7V7ZM7 11H17V13H7V11ZM7 15H13V17H7V15Z"/></svg>
-                        </div>
-                        <h3 style="margin-bottom: 0.5rem;">BTP & Gros Œuvre</h3>
-                        <p style="color: var(--color-gray); font-size: 0.9rem;">Maçonnerie générale, fondations, aménagement d'ateliers et d'espaces de stockage logistique.</p>
-                    </div>
-                </div>
+            
+            <p style="font-size: 14px; text-align: center; color: var(--text-muted); margin-top: 16px;">
+                Promis, zéro spam. Juste votre devis.
+            </p>
+            
+            <div class="thumb-zone">
+                <button class="btn-wa" onclick="submitToWhatsApp()">Recevoir mon prix</button>
             </div>
-        </section>
-
-        <!-- Section 4 : Formulaire avec champs dynamiques -->
-        <section class="form-section reveal" id="devis">
-            <div class="container form-container">
-                <h2 class="section-title" style="color: var(--color-white);">Générer un appel d'offres express</h2>
-                <p style="text-align: center; margin-bottom: var(--spacing-md); color: var(--color-light);">
-                    Sélectionnez vos critères. Le message sera pré-rédigé pour un envoi direct au Gérant (M. Cissé Moctar).
-                </p>
-
-                <form id="whatsappForm" novalidate>
-                    <!-- Type de besoin -->
-                    <div class="form-group">
-                        <label for="needType" class="form-label">Nature principale de votre besoin</label>
-                        <div class="select-wrapper">
-                            <select id="needType" class="form-control" required>
-                                <option value="" disabled selected>Sélectionnez un type d'ouvrage...</option>
-                                <option value="Charpente / Hangar Métallique">Charpente / Hangar Métallique</option>
-                                <option value="Château d'eau métallique">Château d'eau métallique</option>
-                                <option value="Menuiserie Aluminium / Vitrerie">Menuiserie Aluminium / Vitrerie</option>
-                                <option value="BTP / Gros Œuvre">BTP / Gros Œuvre</option>
-                                <option value="Autre">Autre ouvrage (à préciser)</option>
-                            </select>
-                        </div>
-                        <input type="text" id="customNeedType" class="form-control custom-input-field" placeholder="Veuillez préciser le type d'ouvrage..." aria-label="Précisez votre type d'ouvrage">
-                    </div>
-
-                    <!-- Localisation -->
-                    <div class="form-group">
-                        <label for="zoneLocation" class="form-label">Localisation du chantier</label>
-                        <div class="select-wrapper">
-                            <select id="zoneLocation" class="form-control" required>
-                                <option value="" disabled selected>Sélectionnez la zone géographique...</option>
-                                <option value="Abidjan">Abidjan</option>
-                                <option value="Bouaké">Bouaké</option>
-                                <option value="Yamoussoukro">Yamoussoukro</option>
-                                <option value="San-Pedro">San-Pedro</option>
-                                <option value="Korhogo">Korhogo</option>
-                                <option value="Daloa">Daloa</option>
-                                <option value="Man">Man</option>
-                                <option value="Autre">Autre localité</option>
-                            </select>
-                        </div>
-                        <input type="text" id="customZoneLocation" class="form-control custom-input-field" placeholder="Veuillez préciser la localité..." aria-label="Précisez votre localité">
-                    </div>
-
-                    <button type="submit" class="btn btn-whatsapp" style="width: 100%; font-size: 1.125rem; padding: 1rem; margin-top: var(--spacing-sm);">
-                        <svg style="width: 24px; height: 24px; margin-right: 8px; fill: currentColor;" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 19.83C10.57 19.83 9.12 19.43 7.84 18.67L7.54 18.49L4.41 19.31L5.25 16.27L5.05 15.96C4.22 14.63 3.77 13.1 3.77 11.91C3.77 7.34 7.49 3.62 12.06 3.62C14.28 3.62 16.36 4.49 17.93 6.06C19.5 7.63 20.37 9.7 20.37 11.92C20.37 16.49 16.65 20.21 12.06 20.21L12.05 19.83ZM16.61 14.27C16.36 14.15 15.14 13.54 14.92 13.46C14.69 13.38 14.52 13.34 14.36 13.58C14.19 13.82 13.72 14.39 13.57 14.55C13.43 14.71 13.28 14.73 13.03 14.61C12.78 14.49 11.97 14.23 11.02 13.38C10.28 12.72 9.78 11.9 9.63 11.65C9.48 11.4 9.62 11.27 9.74 11.14C9.85 11.03 9.99 10.85 10.12 10.71C10.24 10.56 10.28 10.45 10.37 10.28C10.45 10.11 10.41 9.97 10.35 9.85C10.29 9.73 9.79 8.5 9.58 8.01C9.38 7.54 9.18 7.6 9.03 7.6C8.89 7.6 8.73 7.6 8.56 7.6C8.4 7.6 8.13 7.66 7.91 7.9C7.68 8.14 7.05 8.73 7.05 9.93C7.05 11.13 7.93 12.29 8.05 12.45C8.18 12.61 9.77 15.07 12.22 16.12C12.8 16.37 13.26 16.52 13.62 16.63C14.2 16.82 14.73 16.79 15.15 16.72C15.62 16.64 16.61 16.11 16.82 15.53C17.03 14.95 17.03 14.45 16.96 14.34C16.89 14.22 16.72 14.15 16.47 14.03L16.61 14.27Z"/></svg>
-                        Générer mon appel d'offres WhatsApp
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Floating CTA pour Mobile -->
-    <div class="floating-cta" id="floatingCta">
-        <a href="#devis" class="btn btn-whatsapp" style="box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5);">
-            Demander un chiffrage (48h)
-        </a>
+        </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 C.T.S. SARLU - Construction Métallique & BTP. Tous droits réservés.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.75rem;">Plateforme 100% Client-Side / Autonomie Hors-ligne</p>
-        </div>
-    </footer>
-
-    <!-- ==========================================================================
-         COUCHE 3 À 5 : ARCHITECTURE JS VANILLA (Logique & Etat)
-         ========================================================================== -->
     <script>
-        (() => {
-            'use strict';
+        let currentProject = "";
 
-            /* --------------------------------------------------------------------------
-               COUCHE 3 : TOKENS & CONFIGURATION
-               -------------------------------------------------------------------------- */
-            const CONFIG = {
-                WHATSAPP_NUMBER: '2250707806775',
-                STORAGE_KEY: 'cts_form_draft_v3',
-                SCROLL_THRESHOLD: 300,
-                TEMPLATES: {
-                    WHATSAPP_MSG: (type, zone) => 
-                        `Bonjour M. Cissé, je vous consulte suite à la présentation de C.T.S. SARLU.\n\nJ'ai un projet de *${type}* localisé à *${zone}*.\n\nMerci de me recontacter pour l'établissement d'un devis sous 48h.`
-                }
-            };
-
-            /* --------------------------------------------------------------------------
-               COUCHE 4 : STATE STORE (Gestion d'état Offline-First)
-               -------------------------------------------------------------------------- */
-            const Store = {
-                state: {
-                    needType: '',
-                    customNeedType: '',
-                    zoneLocation: '',
-                    customZoneLocation: ''
-                },
-                init() {
-                    try {
-                        const saved = localStorage.getItem(CONFIG.STORAGE_KEY);
-                        if (saved) {
-                            this.state = { ...this.state, ...JSON.parse(saved) };
-                        }
-                    } catch (e) {
-                        console.warn("LocalStorage indisponible.");
-                    }
-                },
-                update(key, value) {
-                    this.state[key] = value;
-                    this.persist();
-                },
-                persist() {
-                    try {
-                        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(this.state));
-                    } catch (e) {}
-                },
-                clear() {
-                    this.state = { needType: '', customNeedType: '', zoneLocation: '', customZoneLocation: '' };
-                    try {
-                        localStorage.removeItem(CONFIG.STORAGE_KEY);
-                    } catch(e) {}
-                }
-            };
-
-            /* --------------------------------------------------------------------------
-               COUCHE 5 : BUSINESS LOGIC (Protection XSS & Validation)
-               -------------------------------------------------------------------------- */
-            const BusinessLogic = {
-                // Sanitisation stricte anti-XSS
-                sanitizeHTML(str) {
-                    if (typeof str !== 'string') return '';
-                    const map = {
-                        '&': '&amp;', '<': '&lt;', '>': '&gt;',
-                        '"': '&quot;', "'": '&#x27;', "/": '&#x2F;',
-                        "`": '&#x60;', "=": '&#x3D;'
-                    };
-                    return str.replace(/[&<>"'`=\/]/ig, (match) => (map[match]));
-                },
-                
-                generateWhatsAppLink(needType, zoneLocation) {
-                    const cleanType = this.sanitizeHTML(needType);
-                    const cleanZone = this.sanitizeHTML(zoneLocation);
-                    
-                    const message = CONFIG.TEMPLATES.WHATSAPP_MSG(cleanType, cleanZone);
-                    return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-                },
-
-                validateForm(needType, zoneLocation) {
-                    return needType.trim() !== '' && zoneLocation.trim() !== '';
-                }
-            };
-
-            /* --------------------------------------------------------------------------
-               COUCHE 6 : UI CONTROLLER (DOM & Événements 60FPS)
-               -------------------------------------------------------------------------- */
-            const UIController = {
-                elements: {
-                    form: document.getElementById('whatsappForm'),
-                    needTypeSelect: document.getElementById('needType'),
-                    customNeedInput: document.getElementById('customNeedType'),
-                    zoneSelect: document.getElementById('zoneLocation'),
-                    customZoneInput: document.getElementById('customZoneLocation'),
-                    floatingCta: document.getElementById('floatingCta'),
-                    reveals: document.querySelectorAll('.reveal')
-                },
-
-                init() {
-                    this.bindStateToForm();
-                    this.toggleDynamicFields();
-                    this.attachEventListeners();
-                    this.initIntersectionObserver();
-                    this.initScrollListener();
-                },
-
-                bindStateToForm() {
-                    if (Store.state.needType) this.elements.needTypeSelect.value = Store.state.needType;
-                    if (Store.state.customNeedType) this.elements.customNeedInput.value = Store.state.customNeedType;
-                    
-                    if (Store.state.zoneLocation) this.elements.zoneSelect.value = Store.state.zoneLocation;
-                    if (Store.state.customZoneLocation) this.elements.customZoneInput.value = Store.state.customZoneLocation;
-                },
-
-                toggleDynamicFields() {
-                    // Logique pour le type de besoin
-                    if (this.elements.needTypeSelect.value === 'Autre') {
-                        this.elements.customNeedInput.classList.add('active');
-                        this.elements.customNeedInput.setAttribute('required', 'required');
-                    } else {
-                        this.elements.customNeedInput.classList.remove('active');
-                        this.elements.customNeedInput.removeAttribute('required');
-                    }
-
-                    // Logique pour la zone
-                    if (this.elements.zoneSelect.value === 'Autre') {
-                        this.elements.customZoneInput.classList.add('active');
-                        this.elements.customZoneInput.setAttribute('required', 'required');
-                    } else {
-                        this.elements.customZoneInput.classList.remove('active');
-                        this.elements.customZoneInput.removeAttribute('required');
-                    }
-                },
-
-                attachEventListeners() {
-                    // Gestionnaires de changements (Selects)
-                    this.elements.needTypeSelect.addEventListener('change', (e) => {
-                        Store.update('needType', e.target.value);
-                        this.toggleDynamicFields();
-                    });
-
-                    this.elements.zoneSelect.addEventListener('change', (e) => {
-                        Store.update('zoneLocation', e.target.value);
-                        this.toggleDynamicFields();
-                    });
-
-                    // Gestionnaires d'entrées (Inputs Textes)
-                    this.elements.customNeedInput.addEventListener('input', (e) => {
-                        Store.update('customNeedType', e.target.value);
-                    });
-
-                    this.elements.customZoneInput.addEventListener('input', (e) => {
-                        Store.update('customZoneLocation', e.target.value);
-                    });
-
-                    // Soumission
-                    this.elements.form.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        
-                        // Détermination de la valeur finale (Select ou Input personnalisé)
-                        const rawNeed = this.elements.needTypeSelect.value;
-                        const finalNeed = rawNeed === 'Autre' ? this.elements.customNeedInput.value : rawNeed;
-
-                        const rawZone = this.elements.zoneSelect.value;
-                        const finalZone = rawZone === 'Autre' ? this.elements.customZoneInput.value : rawZone;
-
-                        if (BusinessLogic.validateForm(finalNeed, finalZone)) {
-                            const url = BusinessLogic.generateWhatsAppLink(finalNeed, finalZone);
-                            Store.clear();
-                            window.open(url, '_blank', 'noopener,noreferrer');
-                        } else {
-                            alert("Veuillez remplir correctement tous les champs de votre demande.");
-                        }
-                    });
-                },
-
-                initIntersectionObserver() {
-                    const observer = new IntersectionObserver((entries, obs) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                window.requestAnimationFrame(() => {
-                                    entry.target.classList.add('active');
-                                });
-                                obs.unobserve(entry.target);
-                            }
-                        });
-                    }, { root: null, rootMargin: '0px', threshold: 0.15 });
-
-                    this.elements.reveals.forEach(el => observer.observe(el));
-                },
-
-                initScrollListener() {
-                    let ticking = false;
-                    window.addEventListener('scroll', () => {
-                        if (!ticking) {
-                            window.requestAnimationFrame(() => {
-                                if (window.innerWidth < 768) {
-                                    this.elements.floatingCta.style.display = 
-                                        window.scrollY > CONFIG.SCROLL_THRESHOLD ? 'block' : 'none';
-                                } else {
-                                    this.elements.floatingCta.style.display = 'none';
-                                }
-                                ticking = false;
-                            });
-                            ticking = true;
-                        }
-                    }, { passive: true });
-                }
-            };
-
-            /* --------------------------------------------------------------------------
-               INITIALISATION
-               -------------------------------------------------------------------------- */
-            document.addEventListener('DOMContentLoaded', () => {
-                Store.init();
-                UIController.init();
+        function showScreen(screenId) {
+            // Règle d'or : Fluidité des transitions
+            document.querySelectorAll('.screen').forEach(s => {
+                s.classList.remove('active');
             });
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0,0);
+        }
 
-        })();
+        function selectProject(projectName) {
+            currentProject = projectName;
+            document.getElementById('project-name-display').innerText = projectName.toLowerCase();
+            showScreen('screen-form');
+            
+            // Auto-focus doux sur mobile
+            setTimeout(() => {
+                document.getElementById('surface').focus();
+            }, 300);
+        }
+
+        function submitToWhatsApp() {
+            const surface = document.getElementById('surface').value;
+            const phone = document.getElementById('phone').value;
+            
+            if(!phone || phone.length < 8) {
+                alert("Veuillez indiquer un numéro valide pour recevoir votre devis.");
+                document.getElementById('phone').focus();
+                return;
+            }
+            
+            let message = `Bonjour C.T.S. SARLU.\nJe souhaite un devis express pour mon projet de *${currentProject}*.`;
+            if(surface) {
+                message += `\nSurface estimée : ${surface} m².`;
+            }
+            message += `\nMon contact : ${phone}. \nJ'attends votre retour.`;
+            
+            // Numéro officiel C.T.S. SARLU
+            const waUrl = `https://wa.me/2250707806775?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
     </script>
 </body>
-</html>
+                    </html>
