@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#0F172A">
     <meta name="description" content="CISSE TRAVAUX ET SERVICES (C.T.S. SARLU) - B2B Charpente, Hydraulique, BTP.">
-    <title>C.T.S. SARLU | Demander un Devis</title>
+    <title>C.T.S. SARLU | Soumettre un Projet</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,7 +16,7 @@
                         navy: { DEFAULT: '#0F172A', dark: '#080C16', light: '#1E293B' },
                         brand: { orange: '#F97316', hover: '#EA580C' }
                     },
-                    spacing: { '14': '3.5rem' } // 56px absolu pour des cibles tactiles parfaites
+                    spacing: { '14': '3.5rem' } // 56px absolu pour cibles tactiles parfaites
                 }
             }
         }
@@ -30,7 +30,7 @@
         ::-webkit-scrollbar { display: none; }
         body { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Animation de chargement pour le bouton */
+        /* Animation de chargement pour le CTA d'envoi */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
@@ -50,7 +50,7 @@
 </head>
 <body class="bg-navy text-slate-100 font-sans antialiased pb-24 relative min-h-screen">
 
-    <!-- VITRINE (ÉCRAN 1) -->
+    <!-- VITRINE -->
     <header class="bg-navy-dark border-b border-slate-800 sticky top-0 z-30">
         <div class="px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -117,7 +117,7 @@
         </section>
     </main>
 
-    <!-- TRUST CENTER (FOOTER) -->
+    <!-- TRUST CENTER -->
     <footer class="bg-navy-dark border-t border-slate-800 px-4 py-10 pb-40">
         <div class="space-y-8">
             <div>
@@ -140,7 +140,7 @@
         </div>
     </footer>
 
-    <!-- BOUTON WHATSAPP FLOTTANT (RESPIRANT) -->
+    <!-- BOUTON WHATSAPP FLOTTANT -->
     <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Cissé,%20je%20souhaite%20discuter%20d'un%20projet%20avec%20C.T.S." target="_blank" rel="noopener noreferrer" 
        class="fixed bottom-24 right-4 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] transition-transform active:scale-95">
         <span class="relative flex h-full w-full items-center justify-center">
@@ -149,61 +149,62 @@
         </span>
     </a>
 
-    <!-- MAIN FAB (Bouton Devis principal) -->
+    <!-- MAIN FAB (THUMB ZONE) -->
     <div class="fixed bottom-0 left-0 right-0 p-4 z-40 bg-gradient-to-t from-navy via-navy to-transparent pt-12 pointer-events-none">
         <button id="btn-open-sheet" class="w-full h-14 rounded-2xl bg-brand-orange text-navy-dark font-black text-lg shadow-[0_8px_30px_rgba(249,115,22,0.3)] flex items-center justify-center gap-3 transition-transform active:scale-95 pointer-events-auto">
-            <i class="fa-solid fa-file-signature"></i> Demander un Devis
+            <i class="fa-solid fa-rocket"></i> Soumettre un Projet
         </button>
     </div>
 
-    <!-- BOTTOM SHEET : ÉCRANS FORMULAIRE -->
+    <!-- BOTTOM SHEET (FORMULAIRE) -->
     <div id="sheet-overlay" class="sheet-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-50">
         <div id="sheet-content" class="sheet-content absolute bottom-0 left-0 right-0 bg-navy border-t border-slate-700 rounded-t-3xl max-h-[90vh] flex flex-col pointer-events-auto">
             
-            <!-- HEADER DU BOTTOM SHEET -->
-            <div class="flex items-center justify-center p-4 border-b border-slate-800 relative min-h-[72px]">
+            <!-- HEADER -->
+            <div class="flex items-center justify-center p-4 border-b border-slate-800 relative min-h-[72px] shrink-0">
                 <div class="w-12 h-1.5 bg-slate-700 rounded-full absolute top-3"></div>
                 
                 <button id="btn-back" class="hidden absolute left-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2">
                     <i class="fa-solid fa-chevron-left text-xl"></i>
                 </button>
 
-                <h2 id="sheet-title" class="text-lg font-black text-white mt-4 transition-all">Vos Besoins</h2>
+                <h2 id="sheet-title" class="text-lg font-black text-white mt-4 transition-all">Le Cadre du Projet</h2>
                 
                 <button id="btn-close-sheet" class="absolute right-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
 
+            <!-- CONTENU -->
             <div class="p-6 overflow-y-auto flex-1">
                 
                 <p id="sheet-notice" class="text-slate-400 text-sm mb-6 text-center">
-                    Complétez ces informations pour obtenir un <strong class="text-white">devis précis sous 48h</strong>.
+                    Détaillez votre besoin pour permettre à notre <strong class="text-white">bureau d'études</strong> d'évaluer la faisabilité technique.
                 </p>
 
-                <!-- VRAI MESSAGE DE SUCCÈS -->
+                <!-- MESSAGE DE SUCCÈS -->
                 <div id="success-message" class="hidden mb-6 p-6 rounded-2xl bg-emerald-950/50 border border-emerald-500/30 text-center">
                     <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 text-3xl">
                         <i class="fa-solid fa-check-double"></i>
                     </div>
-                    <h3 class="text-lg font-black text-white mb-2">Demande envoyée !</h3>
-                    <p class="text-slate-300 text-sm">Le bureau d'études C.T.S. a bien reçu votre demande. Nous vous contactons rapidement.</p>
+                    <h3 class="text-lg font-black text-white mb-2">Projet Transmis !</h3>
+                    <p class="text-slate-300 text-sm">Le bureau d'études C.T.S. a bien reçu votre dossier. Nous analysons votre demande et vous contactons rapidement.</p>
                     <button id="btn-finish" class="mt-6 w-full h-14 rounded-xl bg-slate-700 text-white font-bold text-base active:scale-95 transition-transform">
                         Retour à l'accueil
                     </button>
                 </div>
 
-                <!-- Message d'erreur potentiel -->
+                <!-- ERREUR RÉSEAU -->
                 <div id="error-message" class="hidden mb-6 p-4 rounded-xl bg-red-950/50 border border-red-500/30 text-center text-red-400 text-sm font-bold">
                     Une erreur réseau est survenue. Veuillez réessayer ou utiliser WhatsApp.
                 </div>
 
                 <form id="lead-form">
                     
-                    <!-- ETAPE 1 : LE BESOIN -->
+                    <!-- ETAPE 1 : LE PROJET -->
                     <div id="step-1" class="space-y-6">
                         <div>
-                            <label class="block text-base font-bold text-slate-300 mb-3">Sélectionnez le métier :</label>
+                            <label class="block text-base font-bold text-slate-300 mb-3">Sélectionnez le domaine :</label>
                             <div class="grid grid-cols-2 gap-3">
                                 <label class="relative">
                                     <input type="radio" name="service" value="Charpente" class="peer sr-only" checked>
@@ -229,6 +230,11 @@
                             <input type="text" id="location" placeholder="Ex: San-Pedro, Zone Industrielle" class="w-full h-14 px-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all" required>
                         </div>
 
+                        <div>
+                            <label class="block text-base font-bold text-slate-300 mb-3">Mon projet (Description) :</label>
+                            <textarea id="project-desc" rows="3" placeholder="Décrivez brièvement les spécificités techniques ou les dimensions de votre besoin..." class="w-full p-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all resize-none" required></textarea>
+                        </div>
+
                         <button type="button" id="btn-next" class="w-full h-14 rounded-xl bg-brand-orange text-navy-dark font-black text-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
                             Poursuivre la Demande <i class="fa-solid fa-arrow-right"></i>
                         </button>
@@ -246,9 +252,8 @@
                             <input type="tel" id="client-phone" inputmode="numeric" placeholder="Ex: 07 07 80 67 75" class="w-full h-14 px-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all" required>
                         </div>
 
-                        <!-- BOUTON AVEC ÉTAT DE CHARGEMENT -->
                         <button type="button" id="btn-submit" class="w-full h-14 rounded-xl bg-brand-orange text-navy-dark font-black text-lg flex items-center justify-center gap-2 transition-all">
-                            <span class="btn-text flex items-center gap-2">Envoyer la Demande <i class="fa-solid fa-paper-plane"></i></span>
+                            <span class="btn-text flex items-center gap-2">Envoyer le Projet <i class="fa-solid fa-paper-plane"></i></span>
                             <div class="spinner"></div>
                         </button>
                     </div>
@@ -257,7 +262,7 @@
         </div>
     </div>
 
-    <!-- LOGIQUE JS : ENVOI DIRECT (AJAX) -->
+    <!-- LOGIQUE D'ENVOI DIRECT (AJAX) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const btnOpen = document.getElementById('btn-open-sheet');
@@ -286,7 +291,7 @@
                 leadForm.classList.remove('hidden');
                 btnBack.classList.add('hidden');
                 btnSubmit.classList.remove('btn-loading', 'pointer-events-none', 'opacity-75');
-                sheetTitle.textContent = "Vos Besoins";
+                sheetTitle.textContent = "Le Cadre du Projet";
                 sheetNotice.classList.remove('hidden');
                 leadForm.reset();
             };
@@ -305,12 +310,25 @@
             };
 
             btnNext.addEventListener('click', () => {
-                // Validation minimale avant de passer à l'étape 2
-                if(!document.getElementById('location').value.trim()) {
-                    document.getElementById('location').classList.add('border-red-500');
-                    return;
+                const locationInput = document.getElementById('location');
+                const descInput = document.getElementById('project-desc');
+                let isValid = true;
+
+                if(!locationInput.value.trim()) {
+                    locationInput.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    locationInput.classList.remove('border-red-500');
                 }
-                document.getElementById('location').classList.remove('border-red-500');
+
+                if(!descInput.value.trim()) {
+                    descInput.classList.add('border-red-500');
+                    isValid = false;
+                } else {
+                    descInput.classList.remove('border-red-500');
+                }
+
+                if(!isValid) return;
                 
                 step1.classList.add('hidden');
                 step2.classList.remove('hidden');
@@ -322,39 +340,42 @@
                 step2.classList.add('hidden');
                 step1.classList.remove('hidden');
                 btnBack.classList.add('hidden');
-                sheetTitle.textContent = "Vos Besoins";
+                sheetTitle.textContent = "Le Cadre du Projet";
             });
 
-            // ENVOI SILENCIEUX VERS FORMSUBMIT
             btnSubmit.addEventListener('click', async () => {
                 const nameInput = document.getElementById('client-name');
                 const phoneInput = document.getElementById('client-phone');
+                let isValid = true;
                 
-                // Anti-spam UX (champs requis)
-                if(!nameInput.value.trim() || !phoneInput.value.trim()) {
-                    if(!nameInput.value.trim()) nameInput.classList.add('border-red-500');
-                    if(!phoneInput.value.trim()) phoneInput.classList.add('border-red-500');
-                    return;
+                if(!nameInput.value.trim()) {
+                    nameInput.classList.add('border-red-500');
+                    isValid = false;
                 }
+                if(!phoneInput.value.trim()) {
+                    phoneInput.classList.add('border-red-500');
+                    isValid = false;
+                }
+                if(!isValid) return;
                 
-                // Activation de l'état de chargement (désactive le clic multiple)
                 btnSubmit.classList.add('btn-loading', 'pointer-events-none', 'opacity-75');
                 errorMessage.classList.add('hidden');
 
                 const service = document.querySelector('input[name="service"]:checked').value;
                 const location = document.getElementById('location').value;
+                const description = document.getElementById('project-desc').value;
                 const name = nameInput.value;
                 const phone = phoneInput.value;
 
-                // Construction de l'objet de données
                 const formData = new FormData();
-                formData.append('Métier', service);
+                formData.append('Domaine', service);
                 formData.append('Lieu', location);
-                formData.append('Nom', name);
+                formData.append('Description_Projet', description);
+                formData.append('Nom_Contact', name);
                 formData.append('Téléphone', phone);
-                formData.append('_subject', `Nouvelle demande de devis CTS : ${service} - ${name}`);
-                formData.append('_captcha', 'false'); // Désactive le captcha pour garder le flow invisible
-                formData.append('_template', 'table'); // Format de mail propre
+                formData.append('_subject', `Nouveau Projet Soumis CTS : ${service} - ${name}`);
+                formData.append('_captcha', 'false'); 
+                formData.append('_template', 'table');
 
                 try {
                     const response = await fetch("https://formsubmit.co/ajax/contact@cissetravaux.com", {
@@ -363,7 +384,6 @@
                     });
 
                     if (response.ok) {
-                        // Succès : Bascule l'UI sur la confirmation
                         leadForm.classList.add('hidden');
                         sheetNotice.classList.add('hidden');
                         btnBack.classList.add('hidden');
@@ -373,13 +393,11 @@
                         throw new Error("Erreur serveur");
                     }
                 } catch (error) {
-                    // Échec : Retire le loader et affiche l'erreur
                     btnSubmit.classList.remove('btn-loading', 'pointer-events-none', 'opacity-75');
                     errorMessage.classList.remove('hidden');
                 }
             });
 
-            // Écouteurs globaux
             btnOpen.addEventListener('click', openSheet);
             btnClose.addEventListener('click', closeSheet);
             btnFinish.addEventListener('click', closeSheet);
@@ -388,9 +406,8 @@
                 if(e.target === sheetOverlay) closeSheet();
             });
             
-            // Retirer les bordures rouges au clavier
-            document.querySelectorAll('input').forEach(input => {
-                input.addEventListener('input', () => input.classList.remove('border-red-500'));
+            document.querySelectorAll('input, textarea').forEach(el => {
+                el.addEventListener('input', () => el.classList.remove('border-red-500'));
             });
         });
     </script>
