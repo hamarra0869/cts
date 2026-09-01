@@ -16,7 +16,7 @@
                         navy: { DEFAULT: '#0F172A', dark: '#080C16', light: '#1E293B' },
                         brand: { orange: '#F97316', hover: '#EA580C' }
                     },
-                    spacing: { '14': '3.5rem' } // 56px absolu pour cibles tactiles
+                    spacing: { '14': '3.5rem' } // 56px absolu pour cibles tactiles parfaites
                 }
             }
         }
@@ -30,7 +30,6 @@
         ::-webkit-scrollbar { display: none; }
         body { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Animation de chargement pour le CTA d'envoi */
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
@@ -46,8 +45,6 @@
         }
         .btn-loading .spinner { display: block; }
         .btn-loading .btn-text { display: none; }
-
-        /* Gestion des Onglets (Tabs) */
         .tab-content { display: none; }
         .tab-content.active { display: grid; }
     </style>
@@ -84,7 +81,6 @@
                 <h2 class="text-sm font-black uppercase tracking-widest text-slate-500">Nos Domaines d'Expertise</h2>
             </div>
             
-            <!-- Contrôles des Onglets -->
             <div class="flex p-1 bg-navy-light rounded-xl border border-slate-700/50 mb-4">
                 <button type="button" id="tab-btn-industry" onclick="switchTab('industry')" class="flex-1 py-2.5 text-xs font-black uppercase tracking-wider rounded-lg bg-brand-orange text-navy-dark transition-all shadow-sm">
                     Industrie Lourde
@@ -94,7 +90,6 @@
                 </button>
             </div>
 
-            <!-- Grille 1 : Industrie Lourde -->
             <div id="tab-industry" class="tab-content active grid-cols-2 gap-4">
                 <div class="bg-navy-light p-4 rounded-2xl border border-slate-700/50 text-center">
                     <i class="fa-solid fa-industry text-2xl text-brand-orange mb-2 block"></i>
@@ -114,7 +109,6 @@
                 </div>
             </div>
 
-            <!-- Grille 2 : Bâtiment & VRD -->
             <div id="tab-building" class="tab-content grid-cols-2 gap-4">
                 <div class="bg-navy-light p-4 rounded-2xl border border-slate-700/50 text-center">
                     <i class="fa-solid fa-warehouse text-2xl text-brand-orange mb-2 block"></i>
@@ -155,30 +149,65 @@
         </section>
     </main>
 
-    <!-- TRUST CENTER -->
+    <!-- TRUST CENTER (FOOTER RESTRUCTURÉ) -->
     <footer class="bg-navy-dark border-t border-slate-800 px-4 py-10 pb-40">
-        <div class="space-y-8">
+        <div class="flex flex-col space-y-10">
+            
+            <!-- Informations de l'entreprise -->
             <div>
-                <h3 class="text-sm font-black uppercase tracking-widest text-slate-500 mb-4">Siège Social</h3>
-                <p class="text-base text-slate-300 leading-relaxed">
-                    Abidjan, Treichville<br>
-                    Avenue 6, Rue 25, Lot 573 A,<br>
-                    Ilot 68
-                </p>
-            </div>
-            <div>
-                <h3 class="text-sm font-black uppercase tracking-widest text-slate-500 mb-4">Mentions Légales</h3>
-                <ul class="text-base text-slate-300 space-y-2">
+                <h3 class="text-base font-medium text-brand-orange mb-4 border-b border-brand-orange/30 pb-2">Informations de l'entreprise</h3>
+                <ul class="text-[16px] text-slate-300 space-y-2 mb-4">
                     <li><strong class="text-white">Forme :</strong> SARLU au capital de 1 000 000 FCFA</li>
                     <li><strong class="text-white">RCCM :</strong> CI-ABJ-03-2024-B13-08127</li>
                     <li><strong class="text-white">N° CC :</strong> 2403460 U</li>
-                    <li><strong class="text-white">Boîte Postale :</strong> 05 BP 432 ABIDJAN 05</li>
                 </ul>
+                <div class="bg-navy-light p-4 rounded-xl border border-slate-700/50 flex items-start gap-3">
+                    <i class="fa-solid fa-shield-halved text-emerald-500 text-xl shrink-0 mt-0.5"></i>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        <strong class="text-white">Engagement RGPD :</strong> Vos données personnelles sont strictement confidentielles. Elles sont collectées uniquement pour le traitement technique de votre dossier.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Nous contacter -->
+            <div>
+                <h3 class="text-base font-medium text-brand-orange mb-4 border-b border-brand-orange/30 pb-2">Nous contacter</h3>
+                <ul class="text-[16px] text-slate-300 space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot mt-1 text-brand-orange w-5 text-center"></i>
+                        <span>Abidjan, Treichville<br>Avenue 6, Rue 25, Lot 573 A, Ilot 68<br>05 BP 432 ABIDJAN 05</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-phone text-brand-orange w-5 text-center"></i>
+                        <span>+225 07 07 80 67 75</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-envelope text-brand-orange w-5 text-center"></i>
+                        <span>contact@cissetravaux.com</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-[#25D366] text-lg w-5 text-center"></i>
+                        <span>WhatsApp disponible</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Tous droits réservés & Liens Légaux Modulaires -->
+            <div class="pt-6 border-t border-slate-800 text-center space-y-3">
+                <p class="text-sm text-slate-400">© 2026 <span class="text-brand-orange font-medium">C.T.S. SARLU</span>. Tous droits réservés.</p>
+                <div class="flex items-center justify-center gap-3 text-sm text-slate-300 flex-wrap">
+                    <button type="button" id="btn-open-mentions" class="hover:text-white transition-colors underline-offset-4 underline decoration-slate-600">Mentions légales</button>
+                    <span class="text-slate-600">|</span>
+                    <button type="button" id="btn-open-privacy" class="hover:text-white transition-colors underline-offset-4 underline decoration-slate-600">Confidentialité</button>
+                </div>
+                <div class="flex items-center justify-center mt-2">
+                    <span class="flex items-center gap-1 text-emerald-500 text-sm font-bold tracking-wide"><i class="fa-solid fa-shield-check"></i> Site sécurisé & Conforme RGPD</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- BOUTON WHATSAPP FLOTTANT -->
+    <!-- BOUTON WHATSAPP -->
     <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Cissé,%20je%20souhaite%20discuter%20d'un%20projet%20avec%20C.T.S." target="_blank" rel="noopener noreferrer" 
        class="fixed bottom-24 right-4 z-40 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgba(37,211,102,0.4)] transition-transform active:scale-95">
         <span class="relative flex h-full w-full items-center justify-center">
@@ -187,125 +216,80 @@
         </span>
     </a>
 
-    <!-- MAIN FAB (THUMB ZONE) -->
+    <!-- MAIN CTA (THUMB ZONE) -->
     <div class="fixed bottom-0 left-0 right-0 p-4 z-40 bg-gradient-to-t from-navy via-navy to-transparent pt-12 pointer-events-none">
         <button id="btn-open-sheet" class="w-full h-14 rounded-2xl bg-brand-orange text-navy-dark font-black text-lg shadow-[0_8px_30px_rgba(249,115,22,0.3)] flex items-center justify-center gap-3 transition-transform active:scale-95 pointer-events-auto">
             <i class="fa-solid fa-rocket"></i> Soumettre un Projet
         </button>
     </div>
 
-    <!-- BOTTOM SHEET (FORMULAIRE) -->
+    <!-- ----------------------------------------------------------- -->
+    <!-- BOTTOM SHEETS (FORMULAIRE & LÉGAL)                          -->
+    <!-- ----------------------------------------------------------- -->
+
     <div id="sheet-overlay" class="sheet-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-50">
-        <div id="sheet-content" class="sheet-content absolute bottom-0 left-0 right-0 bg-navy border-t border-slate-700 rounded-t-3xl max-h-[90vh] flex flex-col pointer-events-auto">
-            
-            <!-- HEADER -->
+        
+        <!-- 1. SHEET : FORMULAIRE DE PROJET -->
+        <div id="sheet-content" class="sheet-content absolute bottom-0 left-0 right-0 bg-navy border-t border-slate-700 rounded-t-3xl max-h-[90vh] flex flex-col pointer-events-auto hidden-sheet">
             <div class="flex items-center justify-center p-4 border-b border-slate-800 relative min-h-[72px] shrink-0">
                 <div class="w-12 h-1.5 bg-slate-700 rounded-full absolute top-3"></div>
-                
                 <button id="btn-back" class="hidden absolute left-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2">
                     <i class="fa-solid fa-chevron-left text-xl"></i>
                 </button>
-
                 <h2 id="sheet-title" class="text-lg font-black text-white mt-4 transition-all">Le Cadre du Projet</h2>
-                
-                <button id="btn-close-sheet" class="absolute right-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2">
+                <button id="btn-close-sheet" class="absolute right-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2 btn-close-generic">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
-
-            <!-- CONTENU -->
             <div class="p-6 overflow-y-auto flex-1">
-                
-                <p id="sheet-notice" class="text-slate-400 text-sm mb-6 text-center">
-                    Détaillez votre besoin pour permettre à notre <strong class="text-white">bureau d'études</strong> d'évaluer la faisabilité technique.
-                </p>
-
-                <!-- MESSAGE DE SUCCÈS -->
+                <p id="sheet-notice" class="text-slate-400 text-sm mb-6 text-center">Détaillez votre besoin pour notre <strong class="text-white">bureau d'études</strong>.</p>
                 <div id="success-message" class="hidden mb-6 p-6 rounded-2xl bg-emerald-950/50 border border-emerald-500/30 text-center">
-                    <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 text-3xl">
-                        <i class="fa-solid fa-check-double"></i>
-                    </div>
+                    <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 text-3xl"><i class="fa-solid fa-check-double"></i></div>
                     <h3 class="text-lg font-black text-white mb-2">Projet Transmis !</h3>
-                    <p class="text-slate-300 text-sm">Le bureau d'études C.T.S. a bien reçu votre dossier. Nous analysons votre demande et vous contactons rapidement.</p>
-                    <button id="btn-finish" class="mt-6 w-full h-14 rounded-xl bg-slate-700 text-white font-bold text-base active:scale-95 transition-transform">
-                        Retour à l'accueil
-                    </button>
+                    <p class="text-slate-300 text-sm">Nous analysons votre demande et vous contactons rapidement.</p>
+                    <button id="btn-finish" class="mt-6 w-full h-14 rounded-xl bg-slate-700 text-white font-bold text-base active:scale-95 transition-transform btn-close-generic">Retour à l'accueil</button>
                 </div>
-
-                <!-- ERREUR RÉSEAU -->
-                <div id="error-message" class="hidden mb-6 p-4 rounded-xl bg-red-950/50 border border-red-500/30 text-center text-red-400 text-sm font-bold">
-                    Une erreur réseau est survenue. Veuillez réessayer ou utiliser WhatsApp.
-                </div>
-
+                <div id="error-message" class="hidden mb-6 p-4 rounded-xl bg-red-950/50 border border-red-500/30 text-center text-red-400 text-sm font-bold">Une erreur est survenue. Veuillez utiliser WhatsApp.</div>
                 <form id="lead-form">
-                    
-                    <!-- ETAPE 1 : LE PROJET -->
                     <div id="step-1" class="space-y-6">
                         <div>
                             <label class="block text-base font-bold text-slate-300 mb-3">Sélectionnez le domaine principal :</label>
                             <div class="grid grid-cols-2 gap-2">
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Chaudronnerie" class="peer sr-only" checked>
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Chaudronnerie</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Tuyauterie" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Tuyauterie</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Soudure" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Soudure</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Montage Industriel" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-xs text-center leading-tight">Montage<br>Industriel</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Charpente" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Charpente</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Hydraulique" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Hydraulique</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="Aluminium" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Aluminium</div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="service" value="BTP" class="peer sr-only">
-                                    <div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">BTP</div>
-                                </label>
+                                <label class="relative"><input type="radio" name="service" value="Chaudronnerie" class="peer sr-only" checked><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Chaudronnerie</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Tuyauterie" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Tuyauterie</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Soudure" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Soudure</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Montage Industriel" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-xs text-center leading-tight">Montage<br>Industriel</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Charpente" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Charpente</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Hydraulique" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Hydraulique</div></label>
+                                <label class="relative"><input type="radio" name="service" value="Aluminium" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">Aluminium</div></label>
+                                <label class="relative"><input type="radio" name="service" value="BTP" class="peer sr-only"><div class="h-12 flex items-center justify-center rounded-xl bg-navy-light border border-slate-700 peer-checked:border-brand-orange peer-checked:bg-brand-orange/10 peer-checked:text-brand-orange text-slate-300 font-bold transition-all cursor-pointer text-sm">BTP</div></label>
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-base font-bold text-slate-300 mb-3">Lieu d'intervention :</label>
                             <input type="text" id="location" placeholder="Ex: San-Pedro, Zone Industrielle" class="w-full h-14 px-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all" required>
                         </div>
-
                         <div>
                             <label class="block text-base font-bold text-slate-300 mb-3">Mon projet (Description) :</label>
-                            <textarea id="project-desc" rows="3" placeholder="Décrivez brièvement les spécificités techniques ou les dimensions de votre besoin..." class="w-full p-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all resize-none" required></textarea>
+                            <textarea id="project-desc" rows="3" placeholder="Décrivez brièvement les spécificités techniques..." class="w-full p-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all resize-none" required></textarea>
                         </div>
-
                         <button type="button" id="btn-next" class="w-full h-14 rounded-xl bg-brand-orange text-navy-dark font-black text-lg flex items-center justify-center gap-2 active:scale-95 transition-transform">
                             Poursuivre la Demande <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
-
-                    <!-- ETAPE 2 : LE CONTACT -->
                     <div id="step-2" class="hidden space-y-6">
                         <div>
                             <label class="block text-base font-bold text-slate-300 mb-3">Votre Nom / Entreprise :</label>
                             <input type="text" id="client-name" placeholder="Ex: M. Cissé" class="w-full h-14 px-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all" required>
                         </div>
-
                         <div>
                             <label class="block text-base font-bold text-slate-300 mb-3">Numéro de téléphone :</label>
                             <input type="tel" id="client-phone" inputmode="numeric" placeholder="Ex: 07 07 80 67 75" class="w-full h-14 px-4 rounded-xl bg-navy-light border border-slate-700 text-white focus:border-brand-orange outline-none text-[16px] placeholder:text-slate-500 transition-all" required>
                         </div>
-
+                        <div class="bg-navy-dark/80 p-4 rounded-xl border border-slate-700/50 flex items-start gap-3 mt-4">
+                            <i class="fa-solid fa-user-shield text-emerald-500 mt-1"></i>
+                            <p class="text-sm text-slate-400 leading-tight">Vos données sont sécurisées. En validant, vous acceptez que C.T.S. SARLU utilise ces informations pour répondre à votre demande.</p>
+                        </div>
                         <button type="button" id="btn-submit" class="w-full h-14 rounded-xl bg-brand-orange text-navy-dark font-black text-lg flex items-center justify-center gap-2 transition-all">
                             <span class="btn-text flex items-center gap-2">Envoyer le Projet <i class="fa-solid fa-paper-plane"></i></span>
                             <div class="spinner"></div>
@@ -314,11 +298,78 @@
                 </form>
             </div>
         </div>
+
+        <!-- 2. SHEET : MENTIONS LÉGALES -->
+        <div id="sheet-mentions" class="sheet-content absolute bottom-0 left-0 right-0 bg-navy border-t border-slate-700 rounded-t-3xl max-h-[85vh] flex flex-col pointer-events-auto hidden">
+            <div class="flex items-center justify-center p-4 border-b border-slate-800 relative min-h-[72px] shrink-0">
+                <div class="w-12 h-1.5 bg-slate-700 rounded-full absolute top-3"></div>
+                <h2 class="text-lg font-black text-white mt-4">Mentions Légales</h2>
+                <button class="absolute right-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2 btn-close-generic">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-[16px] text-slate-300 leading-relaxed pb-12">
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-building text-brand-orange mr-2"></i>Éditeur du Service</h3>
+                    <p>Le présent dispositif digital est édité par l'entreprise <strong class="text-white">C.T.S. SARLU</strong> (Cissé Travaux et Services).</p>
+                    <ul class="mt-2 space-y-1">
+                        <li><strong>Forme Juridique :</strong> SARLU</li>
+                        <li><strong>Capital Social :</strong> 1 000 000 FCFA</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-address-card text-brand-orange mr-2"></i>Immatriculation</h3>
+                    <ul class="space-y-1">
+                        <li><strong>Registre du Commerce (RCCM) :</strong> CI-ABJ-03-2024-B13-08127</li>
+                        <li><strong>N° Compte Contribuable (CC) :</strong> 2403460 U</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-location-dot text-brand-orange mr-2"></i>Coordonnées</h3>
+                    <p><strong>Siège Social :</strong> Abidjan, Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68. (05 BP 432 ABIDJAN 05)</p>
+                    <p class="mt-2"><strong>Contact Téléphonique :</strong> +225 07 07 80 67 75</p>
+                    <p><strong>Courriel :</strong> contact@cissetravaux.com</p>
+                </div>
+                <button class="w-full h-14 rounded-xl bg-slate-800 text-white font-bold text-base active:scale-95 transition-transform btn-close-generic mt-4">Compris, fermer</button>
+            </div>
+        </div>
+
+        <!-- 3. SHEET : CONFIDENTIALITÉ (RGPD / ARTCI) -->
+        <div id="sheet-privacy" class="sheet-content absolute bottom-0 left-0 right-0 bg-navy border-t border-slate-700 rounded-t-3xl max-h-[85vh] flex flex-col pointer-events-auto hidden">
+            <div class="flex items-center justify-center p-4 border-b border-slate-800 relative min-h-[72px] shrink-0">
+                <div class="w-12 h-1.5 bg-slate-700 rounded-full absolute top-3"></div>
+                <h2 class="text-lg font-black text-white mt-4">Confidentialité & Données</h2>
+                <button class="absolute right-4 w-10 h-10 flex items-center justify-center text-slate-400 active:text-white mt-2 btn-close-generic">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto flex-1 space-y-6 text-[16px] text-slate-300 leading-relaxed pb-12">
+                <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-xl">
+                    <p class="text-emerald-400 font-medium text-sm">
+                        <i class="fa-solid fa-shield-check mr-1"></i> Conformité avec la <strong>Loi n° 2013-450</strong> relative à la protection des données à caractère personnel en République de Côte d'Ivoire.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-database text-brand-orange mr-2"></i>Collecte et Finalité</h3>
+                    <p>Dans le cadre de l'évaluation technique de votre besoin B2B, C.T.S. SARLU collecte uniquement les informations strictement nécessaires (Nom, Téléphone, Description du projet).</p>
+                    <p class="mt-2">Ces données sont exclusivement destinées à notre bureau d'études pour traiter votre demande et vous recontacter. <strong class="text-white">Elles ne font l'objet d'aucune exploitation commerciale par des tiers ni d'aucune revente.</strong></p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-lock text-brand-orange mr-2"></i>Conservation et Sécurité</h3>
+                    <p>Vos données transitent par un protocole sécurisé. Elles sont conservées pour la durée nécessaire au suivi de notre relation commerciale technique.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white text-lg mb-2"><i class="fa-solid fa-user-pen text-brand-orange mr-2"></i>Vos Droits</h3>
+                    <p>Conformément à la réglementation ivoirienne (ARTCI), vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez-nous à : <strong class="text-white">contact@cissetravaux.com</strong></p>
+                </div>
+                <button class="w-full h-14 rounded-xl bg-slate-800 text-white font-bold text-base active:scale-95 transition-transform btn-close-generic mt-4">Accepter et fermer</button>
+            </div>
+        </div>
+
     </div>
 
-    <!-- LOGIQUE D'ONGLETS ET D'ENVOI (AJAX) -->
+    <!-- LOGIQUE D'ONGLETS, TIROIRS ET ENVOI -->
     <script>
-        // Fonctionnalité Vitrine : Onglets
         function switchTab(tabName) {
             const btnIndustry = document.getElementById('tab-btn-industry');
             const btnBuilding = document.getElementById('tab-btn-building');
@@ -338,18 +389,23 @@
             }
         }
 
-        // Fonctionnalité Formulaire : Navigation & Soumission
         document.addEventListener('DOMContentLoaded', () => {
-            const btnOpen = document.getElementById('btn-open-sheet');
-            const btnClose = document.getElementById('btn-close-sheet');
+            // UI Elements
             const sheetOverlay = document.getElementById('sheet-overlay');
-            const sheetContent = document.getElementById('sheet-content');
+            const sheetForm = document.getElementById('sheet-content');
+            const sheetMentions = document.getElementById('sheet-mentions');
+            const sheetPrivacy = document.getElementById('sheet-privacy');
             
+            // Buttons Open
+            const btnOpenForm = document.getElementById('btn-open-sheet');
+            const btnOpenMentions = document.getElementById('btn-open-mentions');
+            const btnOpenPrivacy = document.getElementById('btn-open-privacy');
+            const btnsClose = document.querySelectorAll('.btn-close-generic');
+
+            // Form logic elements
             const btnNext = document.getElementById('btn-next');
             const btnBack = document.getElementById('btn-back');
             const btnSubmit = document.getElementById('btn-submit');
-            const btnFinish = document.getElementById('btn-finish');
-            
             const step1 = document.getElementById('step-1');
             const step2 = document.getElementById('step-2');
             const successMessage = document.getElementById('success-message');
@@ -358,6 +414,49 @@
             const sheetTitle = document.getElementById('sheet-title');
             const sheetNotice = document.getElementById('sheet-notice');
 
+            // --- GESTION DES BOTTOM SHEETS ---
+            const hideAllSheets = () => {
+                sheetForm.classList.remove('active');
+                sheetForm.classList.add('hidden-sheet');
+                sheetMentions.classList.remove('active');
+                sheetMentions.classList.add('hidden');
+                sheetPrivacy.classList.remove('active');
+                sheetPrivacy.classList.add('hidden');
+            };
+
+            const openSheet = (sheetElement) => {
+                hideAllSheets();
+                if(sheetElement === sheetForm) resetForm(); 
+                sheetElement.classList.remove('hidden', 'hidden-sheet');
+                // Timeout pour l'animation CSS
+                setTimeout(() => {
+                    sheetOverlay.classList.add('active');
+                    sheetElement.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }, 10);
+            };
+
+            const closeAllSheets = () => {
+                sheetOverlay.classList.remove('active');
+                sheetForm.classList.remove('active');
+                sheetMentions.classList.remove('active');
+                sheetPrivacy.classList.remove('active');
+                document.body.style.overflow = '';
+                // Wait for animation end before hiding
+                setTimeout(hideAllSheets, 300); 
+            };
+
+            // Event Listeners Tiroirs
+            btnOpenForm.addEventListener('click', () => openSheet(sheetForm));
+            btnOpenMentions.addEventListener('click', (e) => { e.preventDefault(); openSheet(sheetMentions); });
+            btnOpenPrivacy.addEventListener('click', (e) => { e.preventDefault(); openSheet(sheetPrivacy); });
+            
+            btnsClose.forEach(btn => btn.addEventListener('click', closeAllSheets));
+            sheetOverlay.addEventListener('click', (e) => {
+                if(e.target === sheetOverlay) closeAllSheets();
+            });
+
+            // --- GESTION DU FORMULAIRE ---
             const resetForm = () => {
                 step1.classList.remove('hidden');
                 step2.classList.add('hidden');
@@ -371,37 +470,16 @@
                 leadForm.reset();
             };
 
-            const openSheet = () => {
-                resetForm(); 
-                sheetOverlay.classList.add('active');
-                sheetContent.classList.add('active');
-                document.body.style.overflow = 'hidden'; 
-            };
-
-            const closeSheet = () => {
-                sheetOverlay.classList.remove('active');
-                sheetContent.classList.remove('active');
-                document.body.style.overflow = ''; 
-            };
-
             btnNext.addEventListener('click', () => {
                 const locationInput = document.getElementById('location');
                 const descInput = document.getElementById('project-desc');
                 let isValid = true;
 
-                if(!locationInput.value.trim()) {
-                    locationInput.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    locationInput.classList.remove('border-red-500');
-                }
+                if(!locationInput.value.trim()) { locationInput.classList.add('border-red-500'); isValid = false; } 
+                else { locationInput.classList.remove('border-red-500'); }
 
-                if(!descInput.value.trim()) {
-                    descInput.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    descInput.classList.remove('border-red-500');
-                }
+                if(!descInput.value.trim()) { descInput.classList.add('border-red-500'); isValid = false; } 
+                else { descInput.classList.remove('border-red-500'); }
 
                 if(!isValid) return;
                 
@@ -423,14 +501,8 @@
                 const phoneInput = document.getElementById('client-phone');
                 let isValid = true;
                 
-                if(!nameInput.value.trim()) {
-                    nameInput.classList.add('border-red-500');
-                    isValid = false;
-                }
-                if(!phoneInput.value.trim()) {
-                    phoneInput.classList.add('border-red-500');
-                    isValid = false;
-                }
+                if(!nameInput.value.trim()) { nameInput.classList.add('border-red-500'); isValid = false; }
+                if(!phoneInput.value.trim()) { phoneInput.classList.add('border-red-500'); isValid = false; }
                 if(!isValid) return;
                 
                 btnSubmit.classList.add('btn-loading', 'pointer-events-none', 'opacity-75');
@@ -457,28 +529,17 @@
                         method: "POST",
                         body: formData
                     });
-
                     if (response.ok) {
                         leadForm.classList.add('hidden');
                         sheetNotice.classList.add('hidden');
                         btnBack.classList.add('hidden');
                         sheetTitle.textContent = "Validation";
                         successMessage.classList.remove('hidden');
-                    } else {
-                        throw new Error("Erreur serveur");
-                    }
+                    } else { throw new Error("Erreur"); }
                 } catch (error) {
                     btnSubmit.classList.remove('btn-loading', 'pointer-events-none', 'opacity-75');
                     errorMessage.classList.remove('hidden');
                 }
-            });
-
-            btnOpen.addEventListener('click', openSheet);
-            btnClose.addEventListener('click', closeSheet);
-            btnFinish.addEventListener('click', closeSheet);
-            
-            sheetOverlay.addEventListener('click', (e) => {
-                if(e.target === sheetOverlay) closeSheet();
             });
             
             document.querySelectorAll('input, textarea').forEach(el => {
