@@ -134,9 +134,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-heading font-bold text-white text-center mb-12 uppercase">Références Majeures</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Projet 1 : San Pedro -->
                 <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                        <i class="fas fa-industry text-5xl text-gray-600"></i>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://i.ibb.co/S4MGX4yd/image.jpg" alt="Usine de Transformation San Pedro" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
                     </div>
                     <div class="p-6">
@@ -145,9 +147,11 @@
                         <p class="text-gray-400 text-sm">Tuyauterie industrielle et montage de cuves de stockage (2025).</p>
                     </div>
                 </div>
+
+                <!-- Projet 2 : Bouaké -->
                 <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                        <i class="fas fa-tractor text-5xl text-gray-600"></i>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://i.ibb.co/PGC6B801/image.jpg" alt="Complexe Agro-industriel Bouaké" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
                     </div>
                     <div class="p-6">
@@ -156,9 +160,11 @@
                         <p class="text-gray-400 text-sm">Charpente métallique lourde et couverture (2024).</p>
                     </div>
                 </div>
+
+                <!-- Projet 3 : Abidjan -->
                 <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                        <i class="fas fa-building text-5xl text-gray-600"></i>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="https://i.ibb.co/Mxp4xJhn/image.jpg" alt="Siège Administratif B2B Abidjan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                         <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
                     </div>
                     <div class="p-6">
@@ -167,6 +173,7 @@
                         <p class="text-gray-400 text-sm">Menuiserie aluminium, baies vitrées et finitions BTP (2024).</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -179,7 +186,7 @@
                 <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">Discutons de votre projet</h2>
                 <p class="text-gray-400 mb-6">Etude technique & Devis sous 48 heures.</p>
 
-                <!-- Option de réservation de rendez-vous en ligne NATIVE (Plus besoin de Calendly) -->
+                <!-- Option de réservation de rendez-vous en ligne NATIVE -->
                 <div class="mb-8 p-5 bg-gray-800 border border-gray-600 rounded-lg flex flex-col sm:flex-row items-center justify-between hover:border-industrial transition duration-300">
                     <div class="text-center sm:text-left mb-4 sm:mb-0">
                         <h3 class="text-white font-bold text-lg"><i class="far fa-calendar-check text-industrial mr-2"></i> Planifier un appel direct</h3>
@@ -305,7 +312,7 @@
         </div>
     </footer>
 
-    <!-- Modal: Prise de RDV Rapide (NATIVE) -->
+    <!-- Modal: Prise de RDV Rapide -->
     <div id="rdvModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
         <div class="bg-steel border border-gray-700 rounded-lg max-w-md w-full shadow-2xl">
             <div class="p-6 border-b border-gray-700 flex justify-between items-center">
@@ -363,7 +370,7 @@
             </div>
             <div class="p-6 space-y-4 text-gray-300 text-sm">
                 <p><strong>1. Collecte des données</strong><br>Dans le cadre de l'utilisation du formulaire de soumission de projet sur cissetravaux.com, C.T.S. SARLU collecte des données professionnelles (Nom, Entreprise, Téléphone, Description du projet).</p>
-                <p><strong>2. Finalité du traitement</strong><br>Ces données sont strictement transmises à <strong>contact@cissetravaux.com</strong> et utilisées pour répondre à vos demandes de devis et assurer le suivi commercial B2B.</p>
+                <p><strong>2. Finalité du traitement</strong><br>Ces données sont strictly transmises à <strong>contact@cissetravaux.com</strong> et utilisées pour répondre à vos demandes de devis et assurer le suivi commercial B2B.</p>
                 <p><strong>3. Conformité ARTCI</strong><br>Conformément à la loi ivoirienne n° 2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
                 <p><strong>4. Exercer vos droits</strong><br>Pour toute demande relative à vos données personnelles, veuillez nous contacter à l'adresse : <a href="mailto:contact@cissetravaux.com" class="text-industrial hover:underline">contact@cissetravaux.com</a>.</p>
             </div>
@@ -398,7 +405,6 @@
             step1.classList.remove('hidden');
         }
 
-        // Fonction pour le formulaire de projet complet
         function submitForm(e) {
             e.preventDefault();
             const domain = document.getElementById('form-domain').value;
@@ -439,7 +445,6 @@
             }, 800);
         }
 
-        // Fonction pour la prise de RDV Rapide native
         function submitRdv(e) {
             e.preventDefault();
             const name = document.getElementById('rdv-name').value;
@@ -465,7 +470,7 @@
                 window.location.href = `mailto:contact@cissetravaux.com?subject=${subject}&body=${body}`;
                 closeModal('rdvModal');
                 btn.innerHTML = originalText;
-                e.target.reset(); // Réinitialise le formulaire de RDV
+                e.target.reset();
             }, 800);
         }
 
