@@ -3,382 +3,685 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C.T.S. SARLU - L'Excellence Opérationnelle B2B</title>
-    <!-- Tailwind CSS pour le style -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>C.T.S. SARLU - Chaudronnerie, Tuyauterie & BTP en Côte d'Ivoire</title>
+    <meta name="description" content="Cissé Travaux & Services (C.T.S. SARLU) : L'excellence opérationnelle B2B sur tout le territoire ivoirien. Chaudronnerie, tuyauterie, charpente métallique et BTP avec prix transparents et matériaux certifiés.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        metal: '#1a1f24',
-                        steel: '#2d3748',
-                        industrial: '#eab308' // Jaune de sécurité industriel
+                        metal: {
+                            900: '#0B0F14',
+                            800: '#121820',
+                            700: '#1C2430',
+                            600: '#2A3648'
+                        },
+                        industrial: {
+                            DEFAULT: '#F59E0B',
+                            hover: '#D97706',
+                            glow: 'rgba(245, 158, 11, 0.25)'
+                        }
                     },
                     fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                        heading: ['Montserrat', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+
     <style>
-        /* Texture métallique subtile pour le fond */
-        .bg-texture {
-            background-color: #111827;
-            background-image: radial-gradient(#374151 1px, transparent 1px);
-            background-size: 20px 20px;
+        /* Texture de fond métallique et dégradés subtils */
+        .bg-industrial-pattern {
+            background-color: #0B0F14;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 41, 59, 0.5) 0px, transparent 50%),
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        /* Animation de respiration pour le bouton WhatsApp */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(34, 197, 94, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+        .whatsapp-breathing {
+            animation: pulseGlow 2s infinite;
+        }
+
+        /* Animation Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-metal text-gray-300 font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-metal-900 text-slate-200 font-sans antialiased flex flex-col min-h-screen selection:bg-industrial selection:text-black">
 
-    <!-- MILESTONE 1: LANDING PAGE & HERO -->
-    
-    <!-- Navbar -->
-    <nav class="bg-metal border-b border-gray-700 sticky top-0 z-40">
+    <!-- HEADER / NAVIGATION STICKY -->
+    <nav class="bg-metal-900/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-40 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 font-heading font-black text-3xl text-white tracking-tighter">
-                    C.T.S. <span class="text-industrial">SARLU</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#services" class="hover:text-industrial px-3 py-2 rounded-md text-sm font-medium transition">Expertise</a>
-                        <a href="#references" class="hover:text-industrial px-3 py-2 rounded-md text-sm font-medium transition">Références</a>
-                        <a href="#contact" class="bg-industrial text-black hover:bg-yellow-400 px-4 py-2 rounded-md text-sm font-bold shadow-lg transition">Demander un Devis</a>
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-industrial to-amber-600 flex items-center justify-center font-extrabold text-black text-xl shadow-lg shadow-industrial/20 group-hover:scale-105 transition duration-300">
+                        C
                     </div>
+                    <div class="flex flex-col">
+                        <span class="font-extrabold text-2xl text-white tracking-tight leading-none">C.T.S. <span class="text-industrial">SARLU</span></span>
+                        <span class="text-[10px] text-slate-400 tracking-wider uppercase font-medium mt-1">Cissé Travaux & Services</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Desktop -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#engagements" class="text-sm font-medium text-slate-300 hover:text-industrial transition">Nos Engagements</a>
+                    <a href="#services" class="text-sm font-medium text-slate-300 hover:text-industrial transition">Expertises</a>
+                    <a href="#couverture" class="text-sm font-medium text-slate-300 hover:text-industrial transition">Couverture Nationale</a>
+                    <a href="#references" class="text-sm font-medium text-slate-300 hover:text-industrial transition">Réalisations</a>
+                    <a href="#contact" class="bg-gradient-to-r from-industrial to-amber-500 hover:from-amber-500 hover:to-industrial text-black font-bold text-sm px-5 py-2.5 rounded-lg shadow-lg shadow-industrial/20 hover:shadow-industrial/40 transition-all duration-300 transform hover:-translate-y-0.5">
+                        Demander un Devis Transparent
+                    </a>
+                </div>
+
+                <!-- Bouton Menu Mobile -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" aria-label="Ouvrir le menu" class="text-slate-300 hover:text-white p-2 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-metal-800 border-b border-slate-800 px-4 pt-4 pb-6 space-y-4">
+            <a href="#engagements" class="block text-base font-medium text-slate-300 hover:text-industrial">Nos Engagements</a>
+            <a href="#services" class="block text-base font-medium text-slate-300 hover:text-industrial">Expertises</a>
+            <a href="#couverture" class="block text-base font-medium text-slate-300 hover:text-industrial">Couverture Nationale</a>
+            <a href="#references" class="block text-base font-medium text-slate-300 hover:text-industrial">Réalisations</a>
+            <a href="#contact" class="block w-full text-center bg-industrial text-black font-bold py-3 rounded-lg shadow-md">
+                Demander un Devis Transparent
+            </a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="bg-texture relative py-20 lg:py-32 overflow-hidden border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-heading font-black text-white mb-6 uppercase tracking-wide">
-                L'Excellence Opérationnelle <br><span class="text-industrial">B2B en Côte d'Ivoire</span>
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10">
-                Votre partenaire de confiance pour la réalisation, la maintenance et l'innovation de vos infrastructures industrielles et chantiers BTP.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-                <a href="#contact" class="bg-industrial text-black hover:bg-yellow-400 text-lg font-bold py-4 px-8 rounded flex items-center transition shadow-[0_0_15px_rgba(234,179,8,0.3)]">
-                    <i class="fas fa-bolt mr-2"></i> Soumettre un projet
-                </a>
-                <p class="text-gray-400 text-sm md:text-base flex items-center mt-4 sm:mt-0">
-                    <i class="fas fa-stopwatch text-industrial text-xl mr-2"></i>
-                    Engagement de réponse sous <strong class="text-white ml-1">48h</strong>
+    <!-- HERO SECTION -->
+    <header class="bg-industrial-pattern relative py-20 lg:py-32 overflow-hidden border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                
+                <!-- Badge Nationale -->
+                <div class="reveal inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-amber-400 text-xs sm:text-sm font-semibold mb-8 backdrop-blur-md">
+                    <span class="flex h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <i class="fas fa-map-marked-alt text-industrial"></i> Interventions sur l'ensemble du territoire national ivoirien
+                </div>
+
+                <!-- H1 Principal -->
+                <h1 class="reveal text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                    L'Excellence en Chaudronnerie, Tuyauterie & BTP : <br class="hidden sm:inline">
+                    <span class="bg-gradient-to-r from-industrial via-amber-400 to-yellow-300 bg-clip-text text-transparent">
+                        Matières d'Œuvre Qualifiées & Prix Transparents.
+                    </span>
+                </h1>
+
+                <!-- Sous-titre -->
+                <p class="reveal text-lg sm:text-xl text-slate-400 mb-10 leading-relaxed font-normal max-w-3xl mx-auto">
+                    De la conception à la maintenance industrielle, <strong>C.T.S. SARLU</strong> garantit aux entreprises sur toute la Côte d'Ivoire un choix rigoureux des matériaux, des coûts justes et un chiffrage sans surprise.
                 </p>
+
+                <!-- CTA & Garanties -->
+                <div class="reveal flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#contact" class="w-full sm:w-auto bg-gradient-to-r from-industrial to-amber-500 hover:from-amber-500 hover:to-industrial text-black font-extrabold text-base py-4 px-8 rounded-xl shadow-xl shadow-industrial/20 hover:shadow-industrial/40 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i class="fas fa-paper-plane"></i> Soumettre mon Projet & Obtenir une Étude (48h)
+                    </a>
+                    <button onclick="openModal('rdvModal')" class="w-full sm:w-auto bg-metal-800 hover:bg-metal-700 text-white border border-slate-700 font-bold text-base py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="far fa-calendar-check text-industrial"></i> Planifier un Appel Direct
+                    </button>
+                </div>
+
+                <!-- Reassurance -->
+                <div class="reveal mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-800/80 pt-8 text-xs sm:text-sm text-slate-400">
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fas fa-check-circle text-industrial"></i> Devis clair & détaillé sous 48h
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fas fa-check-circle text-industrial"></i> Transparence tarifaire absolue
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <i class="fas fa-check-circle text-industrial"></i> Matières d'œuvre normées & certifiées
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
 
-    <!-- Nos Domaines d'Expertise -->
-    <section id="services" class="py-20 bg-steel">
+    <!-- BANDEAU PREUVE SOCIALE & CHIFFRES CLÉS -->
+    <section class="bg-metal-800 border-b border-slate-800/80 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-heading font-bold text-white text-center mb-16 uppercase">Nos Domaines d'Expertise</h2>
-            
-            <!-- Categorie 1: Industrie Lourde -->
-            <h3 class="text-xl font-bold text-industrial mb-8 border-b border-gray-600 pb-2"><i class="fas fa-industry mr-2"></i> Industrie Lourde</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-fire text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Chaudronnerie</h4>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="reveal p-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">100%</div>
+                    <div class="text-xs sm:text-sm text-amber-400 font-semibold uppercase tracking-wider">Couverture Nationale</div>
+                    <p class="text-xs text-slate-400 mt-1">Abidjan, San Pedro, Bouaké & tout le pays</p>
                 </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-water text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Tuyauterie</h4>
+                <div class="reveal p-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">48h Max</div>
+                    <div class="text-xs sm:text-sm text-amber-400 font-semibold uppercase tracking-wider">Réactivité Chiffrage</div>
+                    <p class="text-xs text-slate-400 mt-1">Étude technique & devis rapide</p>
                 </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-mask text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Soudure</h4>
+                <div class="reveal p-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">Prix Juste</div>
+                    <div class="text-xs sm:text-sm text-amber-400 font-semibold uppercase tracking-wider">Transparence Budgétaire</div>
+                    <p class="text-xs text-slate-400 mt-1">Sans frais d'œuvre dissimulés</p>
                 </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-cogs text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Montage Ind.</h4>
-                </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-layer-group text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Charpente</h4>
-                </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-tint text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Hydraulique</h4>
-                </div>
-            </div>
-
-            <!-- Categorie 2: Bâtiment & VRD -->
-            <h3 class="text-xl font-bold text-industrial mb-8 border-b border-gray-600 pb-2"><i class="fas fa-building mr-2"></i> Bâtiment & VRD</h3>
-            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-columns text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">Aluminium (Menuiserie)</h4>
-                </div>
-                <div class="bg-metal p-6 rounded-lg border border-gray-700 text-center hover:border-industrial transition group">
-                    <i class="fas fa-hard-hat text-3xl text-gray-400 group-hover:text-industrial mb-4 transition"></i>
-                    <h4 class="font-bold text-white">BTP & Gros œuvre</h4>
+                <div class="reveal p-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">Certifié</div>
+                    <div class="text-xs sm:text-sm text-amber-400 font-semibold uppercase tracking-wider">Matières Première de Choix</div>
+                    <p class="text-xs text-slate-400 mt-1">Conformité aux normes industrielles</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Références Majeures -->
-    <section id="references" class="py-20 bg-metal">
+    <!-- SECTION ENGAGEMENTS & VALEURS -->
+    <section id="engagements" class="py-20 bg-metal-900 border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-heading font-bold text-white text-center mb-12 uppercase">Références Majeures</h2>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="reveal text-xs font-extrabold text-industrial uppercase tracking-widest mb-3">Vos Garanties B2B</h2>
+                <h3 class="reveal text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Une Relation Fondée sur l'Honnêteté et la Précision Technique</h3>
+                <p class="reveal text-slate-400 mt-4 text-base">Nous éliminons le manque de clarté pour bâtir des partenariats industriels solides et pérennes.</p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Projet 1 : San Pedro -->
-                <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 relative overflow-hidden bg-gray-900">
-                        <img src="https://i.ibb.co/N2mD9C2H/image.jpg" alt="Usine de Transformation San Pedro" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
+                <!-- Carte 1 -->
+                <div class="reveal bg-metal-800/60 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition-all duration-300 backdrop-blur-sm group">
+                    <div class="w-14 h-14 rounded-xl bg-industrial/10 border border-industrial/20 flex items-center justify-center text-industrial text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="text-industrial text-sm font-bold mb-2">San Pedro</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Usine de Transformation</h4>
-                        <p class="text-gray-400 text-sm">Tuyauterie industrielle et montage de cuves de stockage (2025).</p>
-                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Transparence Tarifaire Totale</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Pas d'inattendus sur votre facture. Nos devis détaillent chaque poste de coût : main-d'œuvre, logistique et matière d'œuvre au juste prix du marché.
+                    </p>
                 </div>
 
-                <!-- Projet 2 : Bouaké -->
-                <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 relative overflow-hidden bg-gray-900">
-                        <img src="https://i.ibb.co/3qHvQHs/image.jpg" alt="Complexe Agro-industriel Bouaké" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
+                <!-- Carte 2 -->
+                <div class="reveal bg-metal-800/60 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition-all duration-300 backdrop-blur-sm group">
+                    <div class="w-14 h-14 rounded-xl bg-industrial/10 border border-industrial/20 flex items-center justify-center text-industrial text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="text-industrial text-sm font-bold mb-2">Bouaké</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Complexe Agro-industriel</h4>
-                        <p class="text-gray-400 text-sm">Charpente métallique lourde et couverture (2024).</p>
-                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Honnêteté sur les Matériaux</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sélection rigoureuse et vérifiable des aciers, alliages et fournitures. Nous ne transigeons jamais sur la qualité ou l'épaisseur des matières d'œuvre.
+                    </p>
                 </div>
 
-                <!-- Projet 3 : Abidjan -->
-                <div class="bg-steel border border-gray-700 rounded-lg overflow-hidden group">
-                    <div class="h-48 relative overflow-hidden bg-gray-900">
-                        <img src="https://i.ibb.co/sJFmCQZW/image.jpg" alt="Siège Administratif B2B Abidjan" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-industrial opacity-0 group-hover:opacity-20 transition"></div>
+                <!-- Carte 3 -->
+                <div class="reveal bg-metal-800/60 border border-slate-800 p-8 rounded-2xl hover:border-amber-500/50 transition-all duration-300 backdrop-blur-sm group">
+                    <div class="w-14 h-14 rounded-xl bg-industrial/10 border border-industrial/20 flex items-center justify-center text-industrial text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-truck-fast"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="text-industrial text-sm font-bold mb-2">Abidjan</div>
-                        <h4 class="text-xl font-bold text-white mb-2">Siège Administratif B2B</h4>
-                        <p class="text-gray-400 text-sm">Menuiserie aluminium, baies vitrées et finitions BTP (2024).</p>
-                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Mobilisation sur Tout le Territoire</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Que votre chantier se trouve dans la zone industrielle d'Abidjan, à San Pedro, Bouaké ou dans l'intérieur du pays, nos équipes se déploient avec réactivité.
+                    </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- MILESTONE 2: PROJECT SUBMISSION FORM -->
-    <section id="contact" class="py-20 bg-texture relative border-t border-gray-800">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-steel p-8 md:p-12 rounded-xl border border-gray-700 shadow-2xl">
-                
-                <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">Discutons de votre projet</h2>
-                <p class="text-gray-400 mb-6">Etude technique & Devis sous 48 heures.</p>
+    <!-- EXPERTISES & SERVICES -->
+    <section id="services" class="py-20 bg-metal-800/50 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="reveal text-xs font-extrabold text-industrial uppercase tracking-widest mb-3">Nos Pôles d'Excellence</h2>
+                <h3 class="reveal text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Ingénierie, Fabrication & Construction B2B</h3>
+            </div>
 
-                <!-- Option de réservation de rendez-vous en ligne NATIVE -->
-                <div class="mb-8 p-5 bg-gray-800 border border-gray-600 rounded-lg flex flex-col sm:flex-row items-center justify-between hover:border-industrial transition duration-300">
-                    <div class="text-center sm:text-left mb-4 sm:mb-0">
-                        <h3 class="text-white font-bold text-lg"><i class="far fa-calendar-check text-industrial mr-2"></i> Planifier un appel direct</h3>
-                        <p class="text-sm text-gray-400 mt-1">Gagnez du temps. Choisissez un créneau pour échanger de vive voix.</p>
+            <!-- Industrie Lourde -->
+            <div class="mb-16">
+                <div class="reveal flex items-center gap-3 mb-8 border-b border-slate-700 pb-3">
+                    <i class="fas fa-industry text-2xl text-industrial"></i>
+                    <h4 class="text-2xl font-bold text-white">Industrie Lourde & Maintenance</h4>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-fire-alt text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Chaudronnerie</h5>
                     </div>
-                    <button type="button" onclick="openModal('rdvModal')" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-md transition border border-gray-500 whitespace-nowrap flex items-center">
-                        Prendre RDV <i class="fas fa-calendar-alt ml-2 text-sm"></i>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-water text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Tuyauterie Ind.</h5>
+                    </div>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-dharmachakra text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Soudure Haute P.</h5>
+                    </div>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-cogs text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Montage Ind.</h5>
+                    </div>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-cubes text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Charpente Métal</h5>
+                    </div>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 text-center hover:border-industrial transition duration-300 group">
+                        <i class="fas fa-oil-can text-3xl text-slate-400 group-hover:text-industrial mb-3 transition"></i>
+                        <h5 class="font-bold text-white text-sm">Hydraulique</h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BTP & Aluminium -->
+            <div>
+                <div class="reveal flex items-center gap-3 mb-8 border-b border-slate-700 pb-3">
+                    <i class="fas fa-building text-2xl text-industrial"></i>
+                    <h4 class="text-2xl font-bold text-white">Bâtiment, Aluminium & VRD</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 flex items-center gap-5 hover:border-industrial transition duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-industrial/10 border border-industrial/20 flex items-center justify-center text-industrial text-xl flex-shrink-0">
+                            <i class="fas fa-door-open"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white text-base">Menuiserie Aluminium & Baies Vitrées</h5>
+                            <p class="text-xs text-slate-400 mt-1">Façades vitrées, structures alu et finitions architecturales B2B.</p>
+                        </div>
+                    </div>
+                    <div class="reveal bg-metal-900 p-6 rounded-xl border border-slate-800 flex items-center gap-5 hover:border-industrial transition duration-300">
+                        <div class="w-12 h-12 rounded-lg bg-industrial/10 border border-industrial/20 flex items-center justify-center text-industrial text-xl flex-shrink-0">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-white text-base">BTP & Gros Œuvre</h5>
+                            <p class="text-xs text-slate-400 mt-1">Construction d'infrastructures, dallage industriel et voirie.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION COUVERTURE NATIONALE -->
+    <section id="couverture" class="py-20 bg-metal-900 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-metal-800 to-slate-900 border border-slate-700/80 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+                    <div>
+                        <span class="text-xs font-extrabold text-industrial uppercase tracking-widest block mb-2">Proximité & Réactivité</span>
+                        <h3 class="text-3xl font-extrabold text-white mb-4">Présents là où vos projets industriels se concrétisent</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            De la zone portuaire de <strong>San Pedro</strong> aux pôles agro-industriels de <strong>Bouaké</strong>, en passant par les sites stratégiques d'<strong>Abidjan</strong> et l'ensemble des villes de l'intérieur, C.T.S. SARLU assure le déplacement de ses équipes et équipements sur tout le territoire national ivoirien.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-map-pin text-industrial mr-1"></i> Abidjan</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-map-pin text-industrial mr-1"></i> San Pedro</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-map-pin text-industrial mr-1"></i> Bouaké</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-map-pin text-industrial mr-1"></i> Korhogo</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-map-pin text-industrial mr-1"></i> Yamoussoukro</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs text-amber-300 font-semibold border border-slate-700"><i class="fas fa-globe-africa text-industrial mr-1"></i> Toutes régions CI</span>
+                        </div>
+                    </div>
+                    <div class="bg-metal-900/90 border border-slate-700 p-6 rounded-2xl text-center backdrop-blur-md">
+                        <i class="fas fa-clock text-4xl text-industrial mb-4"></i>
+                        <h4 class="text-xl font-bold text-white mb-2">Un besoin urgent sur chantier ?</h4>
+                        <p class="text-slate-400 text-sm mb-6">Échangez immédiatement avec le gérant pour une évaluation de vos besoins sur site.</p>
+                        <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Ciss%C3%A9%20Mocktar,%20je%20souhaite%20échanger%20directement%20avec%20vous%20concernant%20un%20projet%20sur%20mon%20chantier." target="_blank" class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition shadow-lg">
+                            <i class="fab fa-whatsapp text-lg"></i> Discuter sur WhatsApp avec M. Cissé Mocktar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RÉFÉRENCES MAJEURES -->
+    <section id="references" class="py-20 bg-metal-800/50 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="reveal text-xs font-extrabold text-industrial uppercase tracking-widest mb-3">Preuve sur le Terrain</h2>
+                <h3 class="reveal text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Nos Réalisations à Travers la Côte d'Ivoire</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="reveal bg-metal-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition duration-300">
+                    <div class="h-52 relative overflow-hidden bg-slate-950">
+                        <img src="https://i.ibb.co/N2mD9C2H/image.jpg" alt="Usine de Transformation San Pedro" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-metal-900 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-industrial text-black text-xs font-extrabold px-3 py-1 rounded-md uppercase">San Pedro</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Usine de Transformation</h4>
+                        <p class="text-slate-400 text-sm">Tuyauterie industrielle haute pression et pose de cuves de stockage normées.</p>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="reveal bg-metal-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition duration-300">
+                    <div class="h-52 relative overflow-hidden bg-slate-950">
+                        <img src="https://i.ibb.co/3qHvQHs/image.jpg" alt="Complexe Agro-industriel Bouaké" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-metal-900 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-industrial text-black text-xs font-extrabold px-3 py-1 rounded-md uppercase">Bouaké</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Complexe Agro-industriel</h4>
+                        <p class="text-slate-400 text-sm">Charpente métallique lourde, chaudronnerie spécifique et couverture de grande portée.</p>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="reveal bg-metal-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-amber-500/50 transition duration-300">
+                    <div class="h-52 relative overflow-hidden bg-slate-950">
+                        <img src="https://i.ibb.co/sJFmCQZW/image.jpg" alt="Siège Administratif B2B Abidjan" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-metal-900 to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-industrial text-black text-xs font-extrabold px-3 py-1 rounded-md uppercase">Abidjan</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Siège Administratif B2B</h4>
+                        <p class="text-slate-400 text-sm">Menuiserie aluminium, structures baies vitrées et aménagements BTP haute finition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONVERSION PRINCIPAL -->
+    <section id="contact" class="py-20 bg-industrial-pattern relative border-b border-slate-800/80">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-metal-800/90 backdrop-blur-xl p-8 sm:p-12 rounded-3xl border border-slate-700/80 shadow-2xl">
+                
+                <div class="text-center mb-8">
+                    <span class="text-xs font-extrabold text-industrial uppercase tracking-widest block mb-2">Étude Technique & Devis Transparent</span>
+                    <h2 class="text-3xl font-extrabold text-white">Concrétisons Votre Projet B2B</h2>
+                    <p class="text-slate-400 text-sm mt-2">Réponse garantie et proposition détaillée sous 48 heures.</p>
+                </div>
+
+                <!-- Option Prise de RDV Rapide -->
+                <div class="mb-8 p-5 bg-metal-900/80 border border-slate-700 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-white font-bold text-base flex items-center justify-center sm:justify-start gap-2">
+                            <i class="far fa-calendar-check text-industrial"></i> Vous préférez un échange téléphonique rapide ?
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-1">Choisissez un créneau horaire pour être rappelé par nos ingénieurs.</p>
+                    </div>
+                    <button type="button" onclick="openModal('rdvModal')" class="bg-slate-700 hover:bg-slate-600 text-white text-xs font-bold py-3 px-5 rounded-xl transition whitespace-nowrap border border-slate-600">
+                        Planifier un Rappel
                     </button>
                 </div>
 
                 <div class="flex items-center mb-8">
-                    <div class="flex-grow border-t border-gray-700"></div>
-                    <span class="px-4 text-sm text-gray-500 font-medium">OU DÉCRIVEZ VOTRE BESOIN</span>
-                    <div class="flex-grow border-t border-gray-700"></div>
+                    <div class="flex-grow border-t border-slate-700"></div>
+                    <span class="px-4 text-xs text-slate-500 font-bold uppercase tracking-wider">OU DÉCRIVEZ VOTRE BESOIN</span>
+                    <div class="flex-grow border-t border-slate-700"></div>
                 </div>
-                
+
+                <!-- Formulaire Multi-étapes -->
                 <form id="projectForm" onsubmit="submitForm(event)">
-                    <!-- Step 1 -->
+                    
+                    <!-- Étape 1 -->
                     <div id="step1" class="space-y-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Domaine d'expertise requis</label>
-                            <select id="form-domain" required class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Domaine d'expertise requis *</label>
+                            <select id="form-domain" required class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                                 <option value="" disabled selected>Sélectionnez un domaine...</option>
-                                <option>Chaudronnerie / Tuyauterie</option>
-                                <option>Soudure / Montage Industriel</option>
-                                <option>Charpente Métallique</option>
-                                <option>Hydraulique</option>
-                                <option>BTP / Aluminium</option>
-                                <option>Autre / Multi-domaines</option>
+                                <option>Chaudronnerie / Tuyauterie Industrielle</option>
+                                <option>Soudure Haute Pression / Montage</option>
+                                <option>Charpente Métallique & Couverture</option>
+                                <option>Hydraulique Industrielle</option>
+                                <option>BTP / Gros Œuvre / Menuiserie Aluminium</option>
+                                <option>Projet Multi-domaines / Maintenance Complexe</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Localisation du chantier (Ville/Commune)</label>
-                            <input id="form-location" type="text" required placeholder="Ex: Abidjan - Vridi" class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Localisation du chantier (Ville/Zone en Côte d'Ivoire) *</label>
+                            <input id="form-location" type="text" required placeholder="Ex: Abidjan Vridi, San Pedro, Bouaké..." class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Description succincte du besoin</label>
-                            <textarea id="form-desc" required rows="4" placeholder="Décrivez les grandes lignes de votre projet..." class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition"></textarea>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Description succincte des travaux *</label>
+                            <textarea id="form-desc" required rows="4" placeholder="Précisez la nature des pièces, la matière d'œuvre souhaitée ou les contraintes techniques..." class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition"></textarea>
                         </div>
-                        <button type="button" onclick="nextStep()" class="w-full bg-gray-700 text-white hover:bg-gray-600 py-3 rounded-md font-bold transition flex items-center justify-center">
-                            Suivant <i class="fas fa-arrow-right ml-2"></i>
+                        <button type="button" onclick="nextStep()" class="w-full bg-slate-700 text-white hover:bg-slate-600 py-4 rounded-xl font-bold text-sm transition flex items-center justify-center gap-2">
+                            Poursuivre la Demande <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
 
-                    <!-- Step 2 (Hidden initially) -->
+                    <!-- Étape 2 (Init Cachée) -->
                     <div id="step2" class="hidden space-y-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Nom de l'entreprise</label>
-                            <input id="form-company" type="text" required placeholder="Votre société" class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nom de votre Société / Entreprise *</label>
+                            <input id="form-company" type="text" required placeholder="Votre raison sociale" class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Votre Nom & Prénom</label>
-                            <input id="form-name" type="text" required placeholder="Responsable du projet" class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nom & Prénom du Responsable *</label>
+                            <input id="form-name" type="text" required placeholder="Ex: Jean Koffi" class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Numéro de Téléphone (WhatsApp préféré)</label>
-                            <input id="form-phone" type="tel" required placeholder="+225 00 00 00 00 00" class="w-full bg-metal border border-gray-600 rounded-md py-3 px-4 text-white focus:outline-none focus:border-industrial transition">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Numéro de Téléphone (WhatsApp conseillé) *</label>
+                            <input id="form-phone" type="tel" required placeholder="+225 00 00 00 00 00" class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                         </div>
                         
-                        <div class="p-4 bg-metal border border-gray-700 rounded-lg">
-                            <label class="block text-sm font-medium text-gray-300 mb-2">Disponibilité pour un appel téléphonique (Optionnel)</label>
-                            <input id="form-date" type="datetime-local" class="w-full bg-gray-800 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:border-industrial transition text-sm">
-                            <p class="text-xs text-gray-500 mt-2">Indiquez quand vous souhaitez que notre équipe vous contacte.</p>
+                        <div class="p-4 bg-metal-900 border border-slate-700 rounded-xl">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Disponibilité souhaitée pour un rappel (Optionnel)</label>
+                            <input id="form-date" type="datetime-local" class="w-full bg-metal-800 border border-slate-700 rounded-lg py-2.5 px-3 text-white text-sm focus:outline-none focus:border-industrial transition">
                         </div>
 
                         <div class="flex gap-4">
-                            <button type="button" onclick="prevStep()" class="w-1/3 bg-gray-700 text-white hover:bg-gray-600 py-3 rounded-md font-bold transition">
-                                <i class="fas fa-arrow-left mr-2"></i> Retour
+                            <button type="button" onclick="prevStep()" class="w-1/3 bg-slate-700 text-white hover:bg-slate-600 py-4 rounded-xl font-bold text-sm transition">
+                                <i class="fas fa-arrow-left"></i> Retour
                             </button>
-                            <button type="submit" class="w-2/3 bg-industrial text-black hover:bg-yellow-400 py-3 rounded-md font-bold transition">
-                                Envoyer le projet
+                            <button type="submit" class="w-2/3 bg-gradient-to-r from-industrial to-amber-500 hover:from-amber-500 hover:to-industrial text-black font-extrabold text-sm py-4 rounded-xl shadow-lg transition">
+                                Envoyer la Demande Devis
                             </button>
                         </div>
                     </div>
                 </form>
 
-                <!-- Success State -->
+                <!-- Confirmation de Succès -->
                 <div id="successState" class="hidden text-center py-10">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-900 text-green-400 mb-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-900/50 text-green-400 border border-green-700 mb-6">
                         <i class="fas fa-check text-3xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Préparation de l'e-mail !</h3>
-                    <p class="text-gray-400 mb-6">Votre client de messagerie a été ouvert pour envoyer les détails à <strong>contact@cissetravaux.com</strong>. <br>Nos équipes vous répondront sous 48h.</p>
-                    <button onclick="resetForm()" class="text-industrial hover:text-white underline">Soumettre un autre projet</button>
+                    <h3 class="text-2xl font-bold text-white mb-2">Transmission en cours !</h3>
+                    <p class="text-slate-400 text-sm mb-6 max-w-md mx-auto">
+                        Votre client de messagerie s'ouvre pour acheminer directement votre demande technique à <strong>contact@cissetravaux.com</strong>.<br>Nos équipes vous répondront sous 48h.
+                    </p>
+                    <button onclick="resetForm()" class="text-industrial hover:text-amber-300 text-sm font-bold underline">
+                        Soumettre une autre étude de projet
+                    </button>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- MILESTONE 3: LEGAL FOOTER & MODALS -->
-    <footer class="bg-metal border-t border-gray-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- FOOTER PREMIUM & INFORMATIONS LÉGALES -->
+    <footer class="bg-metal-900 border-t border-slate-800/80 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
                 <div>
-                    <h4 class="text-white font-heading font-bold text-xl mb-4">C.T.S. SARLU</h4>
-                    <p class="text-gray-500 text-sm mb-4">L'Excellence Opérationnelle B2B en Côte d'Ivoire. Chaudronnerie, Tuyauterie, BTP et plus.</p>
+                    <div class="font-extrabold text-2xl text-white tracking-tight mb-4">C.T.S. <span class="text-industrial">SARLU</span></div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Cissé Travaux & Services. L'excellence opérationnelle B2B au service des industries et chantiers sur l'ensemble du territoire national ivoirien.
+                    </p>
+                    <div class="flex gap-4 text-slate-400">
+                        <span class="text-xs bg-slate-800 px-3 py-1.5 rounded-md border border-slate-700"><i class="fas fa-shield-alt text-industrial mr-1"></i> Transparence Garantie</span>
+                    </div>
                 </div>
+
                 <div>
-                    <h4 class="text-white font-bold mb-4">Contacts</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><i class="fas fa-map-marker-alt w-5 text-industrial"></i> Abidjan, Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68, 05 BP 432 ABIDJAN 05</li>
-                        <li><i class="fas fa-phone w-5 text-industrial"></i> +225 07 07 80 67 75</li>
-                        <li><a href="mailto:contact@cissetravaux.com" class="hover:text-industrial transition"><i class="fas fa-envelope w-5 text-industrial"></i> contact@cissetravaux.com</a></li>
+                    <h4 class="text-white font-bold text-base mb-4">Coordonnées & Siège</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-industrial mt-1"></i>
+                            <span>Abidjan, Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68, 05 BP 432 ABIDJAN 05</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-industrial"></i>
+                            <span>+225 07 07 80 67 75</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-industrial"></i>
+                            <a href="mailto:contact@cissetravaux.com" class="hover:text-industrial transition">contact@cissetravaux.com</a>
+                        </li>
                     </ul>
                 </div>
+
                 <div>
-                    <h4 class="text-white font-bold mb-4">Informations Légales</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li>RCCM: CI-ABJ-03-2024-B13-08127</li>
-                        <li>N° CC: 2403460 U</li>
-                        <li>
-                            <button onclick="openModal('legalModal')" class="hover:text-industrial transition underline mt-2 inline-block">Mentions Légales</button>
+                    <h4 class="text-white font-bold text-base mb-4">Conformité & Légal (CI)</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><strong>RCCM :</strong> CI-ABJ-03-2024-B13-08127</li>
+                        <li><strong>Compte Contribuable :</strong> 2403460 U</li>
+                        <li class="pt-2">
+                            <button onclick="openModal('legalModal')" class="hover:text-industrial transition underline text-xs">Mentions Légales Éditeur</button>
                         </li>
                         <li>
-                            <button onclick="openModal('privacyModal')" class="hover:text-industrial transition underline inline-block">Confidentialité & Données (ARTCI)</button>
+                            <button onclick="openModal('privacyModal')" class="hover:text-industrial transition underline text-xs">Confidentialité & Protection ARTCI</button>
                         </li>
                     </ul>
                 </div>
+
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-xs text-gray-600">
+
+            <div class="border-t border-slate-800/80 mt-12 pt-8 text-center text-xs text-slate-500">
                 &copy; 2026 C.T.S. SARLU (Cissé Travaux & Services). Tous droits réservés.
             </div>
         </div>
     </footer>
 
-    <!-- Modal: Prise de RDV Rapide -->
-    <div id="rdvModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-steel border border-gray-700 rounded-lg max-w-md w-full shadow-2xl">
-            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-white"><i class="fas fa-phone-volume text-industrial mr-2"></i> Être rappelé</h3>
-                <button onclick="closeModal('rdvModal')" class="text-gray-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+    <!-- BOUTON WHATSAPP FLOTTANT INTERACTIF & RESPIRANT -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <!-- Bulle d'incitation (Desktop) -->
+        <div class="hidden sm:flex bg-metal-800 border border-slate-700 text-white text-xs font-semibold px-4 py-2 rounded-xl shadow-xl items-center gap-2 backdrop-blur-md">
+            <span class="flex h-2 w-2 rounded-full bg-green-500"></span>
+            Échanger avec M. Cissé Mocktar (Gérant)
+        </div>
+        <!-- Bouton Whatsapp -->
+        <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Ciss%C3%A9%20Mocktar,%20je%20souhaite%20échanger%20avec%20vous%20concernant%20un%20projet%20B2B%20pour%20mon%20entreprise." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="Discuter sur WhatsApp avec le Gérant Cissé Mocktar"
+           class="whatsapp-breathing bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition-all duration-300 transform hover:scale-110">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- MODALE : PRISE DE RDV TÉLÉPHONIQUE -->
+    <div id="rdvModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-metal-800 border border-slate-700 rounded-3xl max-w-md w-full shadow-2xl overflow-hidden">
+            <div class="p-6 border-b border-slate-700 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fas fa-phone-volume text-industrial"></i> Planifier un Appel Direct
+                </h3>
+                <button onclick="closeModal('rdvModal')" class="text-slate-400 hover:text-white text-xl"><i class="fas fa-times"></i></button>
             </div>
             <form onsubmit="submitRdv(event)" class="p-6 space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-2">Votre Nom & Prénom</label>
-                    <input id="rdv-name" type="text" required placeholder="Ex: Jean Dupont" class="w-full bg-metal border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:border-industrial transition">
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Votre Nom & Prénom *</label>
+                    <input id="rdv-name" type="text" required placeholder="Ex: Jean Dupont" class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-2">Numéro de Téléphone</label>
-                    <input id="rdv-phone" type="tel" required placeholder="+225 00 00 00 00 00" class="w-full bg-metal border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:border-industrial transition">
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Numéro de Téléphone *</label>
+                    <input id="rdv-phone" type="tel" required placeholder="+225 00 00 00 00 00" class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-gray-300 mb-2">Date et Heure souhaitées</label>
-                    <input id="rdv-date" type="datetime-local" required class="w-full bg-metal border border-gray-600 rounded-md py-2 px-3 text-white focus:outline-none focus:border-industrial transition text-sm">
+                    <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Date & Heure souhaitées *</label>
+                    <input id="rdv-date" type="datetime-local" required class="w-full bg-metal-900 border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:outline-none focus:border-industrial transition">
                 </div>
-                <button type="submit" class="w-full bg-industrial text-black hover:bg-yellow-400 py-3 rounded-md font-bold transition mt-4">
-                    Confirmer le RDV
+                <button type="submit" class="w-full bg-industrial text-black hover:bg-amber-500 py-3.5 rounded-xl font-bold text-sm transition mt-4">
+                    Confirmer la Demande de Rappel
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Modal: Mentions Légales -->
-    <div id="legalModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-steel border border-gray-700 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
-            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
+    <!-- MODALE : MENTIONS LÉGALES -->
+    <div id="legalModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-metal-800 border border-slate-700 rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl">
+            <div class="p-6 border-b border-slate-700 flex justify-between items-center">
                 <h3 class="text-xl font-bold text-white">Mentions Légales</h3>
-                <button onclick="closeModal('legalModal')" class="text-gray-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+                <button onclick="closeModal('legalModal')" class="text-slate-400 hover:text-white text-xl"><i class="fas fa-times"></i></button>
             </div>
-            <div class="p-6 space-y-4 text-gray-300 text-sm">
+            <div class="p-6 space-y-4 text-slate-300 text-sm leading-relaxed">
                 <p><strong>Éditeur du site :</strong> C.T.S. SARLU (Cissé Travaux & Services)</p>
-                <p><strong>Site Internet :</strong> <a href="https://www.cissetravaux.com/" class="text-industrial hover:underline">www.cissetravaux.com</a></p>
-                <p><strong>Email de contact :</strong> <a href="mailto:contact@cissetravaux.com" class="text-industrial hover:underline">contact@cissetravaux.com</a></p>
                 <p><strong>Siège social :</strong> Abidjan, Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68, 05 BP 432 ABIDJAN 05</p>
                 <p><strong>Forme juridique :</strong> Société à Responsabilité Limitée Unipersonnelle (SARLU)</p>
-                <p><strong>Registre de Commerce (RCCM) :</strong> CI-ABJ-03-2024-B13-08127</p>
+                <p><strong>Registre du Commerce (RCCM) :</strong> CI-ABJ-03-2024-B13-08127</p>
                 <p><strong>Compte Contribuable (CC) :</strong> 2403460 U</p>
-                <p><strong>Directeur de la publication :</strong> [Nom du Gérant]</p>
-                <p><strong>Hébergement :</strong> Le site est hébergé par [Nom de l'hébergeur], [Adresse de l'hébergeur].</p>
-                <p>Ce site présente les services B2B de C.T.S. SARLU. Toute reproduction totale ou partielle de ce site est interdite sans autorisation expresse.</p>
+                <p><strong>Gérant & Direction :</strong> M. Cissé Mocktar</p>
+                <p><strong>Contact :</strong> contact@cissetravaux.com | +225 07 07 80 67 75</p>
             </div>
         </div>
     </div>
 
-    <!-- Modal: Confidentialité & Données -->
-    <div id="privacyModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-steel border border-gray-700 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
-            <div class="p-6 border-b border-gray-700 flex justify-between items-center">
-                <h3 class="text-xl font-bold text-white">Confidentialité & Données (Conformité ARTCI)</h3>
-                <button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+    <!-- MODALE : CONFIDENTIALITÉ ARTCI -->
+    <div id="privacyModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-metal-800 border border-slate-700 rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl">
+            <div class="p-6 border-b border-slate-700 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-white">Protection des Données (Conformité ARTCI)</h3>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white text-xl"><i class="fas fa-times"></i></button>
             </div>
-            <div class="p-6 space-y-4 text-gray-300 text-sm">
-                <p><strong>1. Collecte des données</strong><br>Dans le cadre de l'utilisation du formulaire de soumission de projet sur cissetravaux.com, C.T.S. SARLU collecte des données professionnelles (Nom, Entreprise, Téléphone, Description du projet).</p>
-                <p><strong>2. Finalité du traitement</strong><br>Ces données sont strictement transmises à <strong>contact@cissetravaux.com</strong> et utilisées pour répondre à vos demandes de devis et assurer le suivi commercial B2B.</p>
-                <p><strong>3. Conformité ARTCI</strong><br>Conformément à la loi ivoirienne n° 2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
-                <p><strong>4. Exercer vos droits</strong><br>Pour toute demande relative à vos données personnelles, veuillez nous contacter à l'adresse : <a href="mailto:contact@cissetravaux.com" class="text-industrial hover:underline">contact@cissetravaux.com</a>.</p>
+            <div class="p-6 space-y-4 text-slate-300 text-sm leading-relaxed">
+                <p><strong>1. Collecte des Données</strong><br>Dans le cadre de l'utilisation du formulaire de soumission de projet, C.T.S. SARLU collecte les données professionnelles transmises (Nom, Entreprise, Téléphone, Spécifications du projet).</p>
+                <p><strong>2. Finalité</strong><br>Ces données sont strictement destinées au suivi commercial et à l'établissement d'études de devis par nos équipes.</p>
+                <p><strong>3. Droits d'Accès & Modification</strong><br>Conformément à la loi ivoirienne n° 2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel, vous bénéficiez d'un droit d'accès, de rectification et de suppression de vos données en nous écrivant à contact@cissetravaux.com.</p>
             </div>
         </div>
     </div>
 
-    <!-- Scripts pour l'interactivité -->
+    <!-- SCRIPTS INTERACTIFS (VANILLA JS) -->
     <script>
+        // Menu Mobile Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal avec IntersectionObserver
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Formulaire Multi-Étapes
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
         const form = document.getElementById('projectForm');
@@ -388,13 +691,13 @@
             const inputs = step1.querySelectorAll('input, select, textarea');
             let valid = true;
             inputs.forEach(input => {
-                if(!input.checkValidity()) {
+                if (!input.checkValidity()) {
                     input.reportValidity();
                     valid = false;
                 }
             });
 
-            if(valid) {
+            if (valid) {
                 step1.classList.add('hidden');
                 step2.classList.remove('hidden');
             }
@@ -415,34 +718,32 @@
             const phone = document.getElementById('form-phone').value;
             const callDate = document.getElementById('form-date').value;
 
-            const formattedDate = callDate ? callDate.replace('T', ' à ') : 'Non précisée';
+            const formattedDate = callDate ? callDate.replace('T', ' à ') : 'Non spécifiée';
 
-            const subject = encodeURIComponent(`Nouveau Projet B2B : ${company} - ${domain}`);
+            const subject = encodeURIComponent(`Demande d'Étude B2B : ${company} - ${domain}`);
             const body = encodeURIComponent(
                 `Bonjour l'équipe C.T.S. SARLU,\n\n` +
-                `Un nouveau projet a été soumis via www.cissetravaux.com :\n\n` +
-                `-- DÉTAILS DU PROJET --\n` +
+                `Une demande d'étude de projet a été soumise via le site internet :\n\n` +
+                `-- DÉTAILS LE BESOIN --\n` +
                 `Domaine requis : ${domain}\n` +
-                `Localisation : ${location}\n` +
+                `Localisation chantier : ${location}\n` +
                 `Description : ${desc}\n\n` +
-                `-- CONTACT --\n` +
-                `Entreprise : ${company}\n` +
-                `Nom & Prénom : ${name}\n` +
+                `-- CONTACT ENTREPRISE --\n` +
+                `Société : ${company}\n` +
+                `Responsable : ${name}\n` +
                 `Téléphone : ${phone}\n` +
-                `Disponibilité souhaitée pour un appel : ${formattedDate}\n\n` +
-                `Merci de nous recontacter sous 48h.\n`
+                `Disponibilité rappel : ${formattedDate}\n\n` +
+                `Merci de nous retourner une proposition sous 48h.\n`
             );
 
             const submitBtn = step2.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerText;
-            submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Préparation...';
-            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmission...';
+
             setTimeout(() => {
                 window.location.href = `mailto:contact@cissetravaux.com?subject=${subject}&body=${body}`;
                 form.classList.add('hidden');
                 successState.classList.remove('hidden');
-                submitBtn.innerHTML = originalText;
-            }, 800);
+            }, 600);
         }
 
         function submitRdv(e) {
@@ -451,27 +752,18 @@
             const phone = document.getElementById('rdv-phone').value;
             const date = document.getElementById('rdv-date').value.replace('T', ' à ');
 
-            const subject = encodeURIComponent(`Demande de RDV Téléphonique : ${name}`);
+            const subject = encodeURIComponent(`Demande de Rappel Téléphonique : ${name}`);
             const body = encodeURIComponent(
                 `Bonjour l'équipe C.T.S. SARLU,\n\n` +
-                `Je souhaite être rappelé pour discuter d'un projet.\n\n` +
-                `-- DÉTAILS DU CONTACT --\n` +
+                `Je souhaite être rappelé directement pour échanger sur un projet.\n\n` +
                 `Nom & Prénom : ${name}\n` +
                 `Téléphone : ${phone}\n` +
-                `Date et heure souhaitées : ${date}\n\n` +
-                `Merci de me recontacter.\n`
+                `Créneau souhaité : ${date}\n`
             );
 
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerText;
-            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Préparation...';
-
-            setTimeout(() => {
-                window.location.href = `mailto:contact@cissetravaux.com?subject=${subject}&body=${body}`;
-                closeModal('rdvModal');
-                btn.innerHTML = originalText;
-                e.target.reset();
-            }, 800);
+            window.location.href = `mailto:contact@cissetravaux.com?subject=${subject}&body=${body}`;
+            closeModal('rdvModal');
+            e.target.reset();
         }
 
         function resetForm() {
@@ -482,6 +774,7 @@
             step1.classList.remove('hidden');
         }
 
+        // Gestion des Modales
         function openModal(id) {
             document.getElementById(id).classList.remove('hidden');
             document.body.style.overflow = 'hidden';
