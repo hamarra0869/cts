@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .label { @apply mb-1 block text-sm font-medium text-stone-700; }
+  .field { @apply w-full rounded border border-stone-300 bg-white px-3 py-2 text-base text-stone-900 placeholder-stone-400 focus:border-orange-600 focus:outline-none focus:ring-1 focus:ring-orange-600; }
+}
