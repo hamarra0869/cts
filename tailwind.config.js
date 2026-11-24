@@ -1,4 +1,4 @@
 module.exports = {
-  content: ["./index.html"],
+  content: ["./index.html", "./site.js"],
   theme: { extend: {} },
 };
