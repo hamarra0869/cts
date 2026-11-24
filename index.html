@@ -6,7 +6,7 @@
   <title>C.T.S. SARLU — Construction métallique, bâtiment et aluminium à Abidjan</title>
   <meta name="description" content="Cissé Travaux et Services (C.T.S.), Treichville : charpentes et hangars métalliques, bâtiment, ferronnerie, aluminium et vitrerie, cuves et tuyauterie, partout en Côte d'Ivoire. Devis détaillé sur demande.">
   <link rel="canonical" href="https://www.cissetravaux.com/">
-  <meta name="theme-color" content="#1c1917">
+  <meta name="theme-color" content="#faf8f5">
 
   <!-- Aperçu des liens (WhatsApp, Facebook, LinkedIn) -->
   <meta property="og:type" content="website">
@@ -20,6 +20,7 @@
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
 
   <script type="application/ld+json">
   {
@@ -42,11 +43,13 @@
   }
   </script>
 </head>
-<body class="bg-white font-sans text-stone-800 antialiased">
+<body class="bg-[#faf8f5] font-sans text-stone-800 antialiased">
+
+  <div id="progress" class="fixed inset-x-0 top-0 z-50 h-0.5 origin-left scale-x-0 bg-orange-600" aria-hidden="true"></div>
 
   <!-- En-tête -->
-  <header class="sticky top-0 z-40 border-b border-stone-200 bg-white">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+  <header id="siteHeader" class="sticky top-0 z-40 border-b border-transparent bg-[#faf8f5]/95 transition-[box-shadow,border-color] duration-300">
+    <div id="headerBar" class="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 transition-[height] duration-300 sm:px-6">
       <a href="#" class="flex items-center gap-3">
         <img src="favicon.svg" alt="" class="h-9 w-9">
         <span class="leading-tight">
@@ -55,217 +58,323 @@
         </span>
       </a>
 
-      <nav class="hidden items-center gap-7 text-sm lg:flex" aria-label="Navigation principale">
-        <a href="#services" class="text-stone-700 hover:text-stone-950">Métiers</a>
-        <a href="#realisations" class="text-stone-700 hover:text-stone-950">Réalisations</a>
-        <a href="#zone" class="text-stone-700 hover:text-stone-950">Zone d'intervention</a>
-        <a href="#contact" class="rounded bg-orange-600 px-4 py-2 font-semibold text-white hover:bg-orange-700">Demander un devis</a>
+      <nav class="hidden items-center gap-8 text-sm lg:flex" aria-label="Navigation principale">
+        <a href="#services" class="nav-link">Métiers</a>
+        <a href="#methode" class="nav-link">Méthode</a>
+        <a href="#realisations" class="nav-link">Réalisations</a>
+        <a href="#zone" class="nav-link">Zone d'intervention</a>
+        <a href="#contact" class="btn-primary">Demander un devis</a>
       </nav>
 
       <button id="menuBtn" type="button" class="rounded p-2 text-stone-700 lg:hidden" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
-    <nav id="mobileMenu" class="hidden border-t border-stone-200 px-4 pb-4 lg:hidden" aria-label="Navigation mobile">
+    <nav id="mobileMenu" class="hidden border-t border-stone-200 bg-[#faf8f5] px-4 pb-4 lg:hidden" aria-label="Navigation mobile">
       <a href="#services" class="block py-3 text-stone-800">Métiers</a>
+      <a href="#methode" class="block py-3 text-stone-800">Méthode</a>
       <a href="#realisations" class="block py-3 text-stone-800">Réalisations</a>
       <a href="#zone" class="block py-3 text-stone-800">Zone d'intervention</a>
-      <a href="#contact" class="mt-2 block rounded bg-orange-600 py-3 text-center font-semibold text-white">Demander un devis</a>
+      <a href="#contact" class="btn-primary mt-2 w-full">Demander un devis</a>
     </nav>
   </header>
 
   <main>
     <!-- Accroche -->
-    <section class="bg-stone-900 text-white">
-      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-20">
-        <div>
-          <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-orange-400">Treichville, Abidjan · Toute la Côte d'Ivoire</p>
-          <h1 class="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Construction métallique, bâtiment et aluminium</h1>
-          <p class="mt-5 text-lg leading-relaxed text-stone-300">
+    <section class="overflow-hidden">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-10 sm:px-6 lg:grid-cols-12 lg:items-center lg:pb-24 lg:pt-16">
+        <div class="lg:col-span-6">
+          <p class="hero-in mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-orange-700" style="--d:0ms">Treichville, Abidjan · Toute la Côte d'Ivoire</p>
+          <h1 class="text-4xl font-bold leading-[1.08] tracking-tight text-stone-900 sm:text-5xl lg:text-[3.3rem]">
+            <span class="line"><span style="--d:80ms">Construction</span></span>
+            <span class="line"><span style="--d:180ms">métallique, bâtiment</span></span>
+            <span class="line"><span style="--d:280ms">et aluminium</span></span>
+          </h1>
+          <p class="hero-in mt-6 max-w-xl text-lg leading-relaxed text-stone-600" style="--d:450ms">
             Cissé Travaux et Services réalise vos charpentes, hangars, portails, menuiseries aluminium, cuves et tuyauteries, pour les particuliers comme pour les entreprises. Chaque devis détaille la main-d'œuvre, les matériaux et le transport.
           </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#contact" class="rounded bg-orange-600 px-6 py-3 text-center font-semibold text-white hover:bg-orange-700">Demander un devis</a>
-            <a href="tel:+2250707806775" class="rounded border border-stone-500 px-6 py-3 text-center font-semibold text-white hover:bg-stone-800">Appeler le 07 07 80 67 75</a>
+          <div class="hero-in mt-9 flex flex-col gap-3 sm:flex-row" style="--d:560ms">
+            <a href="#contact" class="btn-primary px-7 py-3.5 text-base">Demander un devis</a>
+            <a href="tel:+2250707806775" class="btn-outline px-7 py-3.5 text-base">Appeler le 07 07 80 67 75</a>
           </div>
         </div>
-        <img src="img/equipe-cts-chantier.jpg" alt="Équipe C.T.S. en gilets sur un chantier de construction métallique" class="aspect-[4/3] w-full rounded object-cover" width="780" height="661">
+
+        <div class="relative lg:col-span-6">
+          <div class="hero-photo overflow-hidden rounded-lg">
+            <img data-parallax="0.06" src="img/equipe-cts-chantier.jpg" alt="Équipe C.T.S. en gilets sur un chantier de construction métallique" class="aspect-[4/3] w-full scale-[1.08] object-cover" width="780" height="661" fetchpriority="high">
+          </div>
+          <div class="hero-in absolute -bottom-6 left-4 rounded-lg bg-white px-5 py-4 shadow-[0_12px_32px_-12px_rgba(28,25,23,0.25)] sm:left-6" style="--d:800ms">
+            <span class="block text-xs uppercase tracking-wide text-stone-500">Première réalisation</span>
+            <span class="block text-[15px] font-semibold text-stone-900">Immeuble R+4 · Marcory · 2024</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Repères -->
-    <section class="border-b border-stone-200 bg-stone-50">
-      <dl class="mx-auto grid max-w-6xl gap-6 px-4 py-8 text-sm sm:grid-cols-3 sm:px-6">
-        <div>
-          <dt class="font-semibold text-stone-900">Un immeuble R+4 dès la première année</dt>
-          <dd class="mt-1 text-stone-600">Créée en 2024, l'entreprise a réalisé un immeuble R+4 à Marcory. Attestation de bonne exécution disponible sur demande.</dd>
+    <!-- Chiffres -->
+    <section class="border-y border-stone-200 bg-white">
+      <dl class="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 px-4 py-10 sm:px-6 lg:grid-cols-4">
+        <div class="reveal flex flex-col-reverse" style="--i:0">
+          <dt class="mt-1 text-sm text-stone-600">postes à souder</dt>
+          <dd class="text-4xl font-bold tabular-nums text-stone-900"><span data-count="26">26</span></dd>
         </div>
-        <div>
-          <dt class="font-semibold text-stone-900">Un parc de matériel en propre</dt>
-          <dd class="mt-1 text-stone-600">26 postes à souder, 8 groupes électrogènes, 2 véhicules tout-terrain, cintreuses et outillage de découpe.</dd>
+        <div class="reveal flex flex-col-reverse" style="--i:1">
+          <dt class="mt-1 text-sm text-stone-600">groupes électrogènes</dt>
+          <dd class="text-4xl font-bold tabular-nums text-stone-900"><span data-count="8">8</span></dd>
         </div>
-        <div>
-          <dt class="font-semibold text-stone-900">Devis détaillé</dt>
-          <dd class="mt-1 text-stone-600">Main-d'œuvre, matériaux et transport chiffrés poste par poste. Chaque étape est validée avec vous.</dd>
+        <div class="reveal flex flex-col-reverse" style="--i:2">
+          <dt class="mt-1 text-sm text-stone-600">véhicules tout-terrain</dt>
+          <dd class="text-4xl font-bold tabular-nums text-stone-900"><span data-count="2">2</span></dd>
+        </div>
+        <div class="reveal flex flex-col-reverse" style="--i:3">
+          <dt class="mt-1 text-sm text-stone-600">année de création</dt>
+          <dd class="text-4xl font-bold tabular-nums text-stone-900"><span data-count="2024" data-from="2000">2024</span></dd>
         </div>
       </dl>
     </section>
 
     <!-- Métiers -->
-    <section id="services" class="scroll-mt-16">
-      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2 class="text-2xl font-bold text-stone-900 sm:text-3xl">Nos métiers</h2>
-        <p class="mt-2 max-w-2xl text-stone-600">De la fabrication en atelier à la pose sur chantier, une seule entreprise pour vos ouvrages.</p>
+    <section id="services" class="scroll-mt-20">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="reveal eyebrow">Nos métiers</p>
+          <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl" style="--i:1">De l'atelier au chantier, une seule entreprise</h2>
+        </div>
+        <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="card-metier reveal" style="--i:0">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">01</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Construction métallique</h3>
+            <p class="mt-2 text-stone-600">Charpentes, hangars et entrepôts, structures, châteaux d'eau, escaliers et tiges d'ancrage.</p>
+          </article>
+          <article class="card-metier reveal" style="--i:1">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">02</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Bâtiment</h3>
+            <p class="mt-2 text-stone-600">Construction neuve, rénovation, extensions et finitions, électricité du bâtiment.</p>
+          </article>
+          <article class="card-metier reveal" style="--i:2">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">03</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Ferronnerie</h3>
+            <p class="mt-2 text-stone-600">Portails, grilles de protection, rampes, garde-corps et clôtures.</p>
+          </article>
+          <article class="card-metier reveal" style="--i:0">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">04</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Aluminium et vitrerie</h3>
+            <p class="mt-2 text-stone-600">Fenêtres, portes, baies vitrées coulissantes, balcons vitrés, cloisons, façades et pose de Naco.</p>
+          </article>
+          <article class="card-metier reveal" style="--i:1">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">05</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Industrie</h3>
+            <p class="mt-2 text-stone-600">Cuves, tuyauterie industrielle, soudure et montage d'équipements.</p>
+          </article>
+          <article class="card-metier reveal" style="--i:2">
+            <span class="text-sm font-semibold tabular-nums text-orange-700">06</span>
+            <h3 class="mt-3 text-lg font-semibold text-stone-900">Équipements sportifs et bâches</h3>
+            <p class="mt-2 text-stone-600">Paniers et panneaux de basket, poteaux de handball et de volley, bâches, stores et abris de parking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Construction métallique</h3>
-            <p class="mt-3 text-stone-600">Charpentes, hangars et entrepôts, structures, châteaux d'eau, escaliers et tiges d'ancrage.</p>
-          </div>
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Bâtiment</h3>
-            <p class="mt-3 text-stone-600">Construction neuve, rénovation, extensions et finitions, électricité du bâtiment.</p>
-          </div>
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Ferronnerie</h3>
-            <p class="mt-3 text-stone-600">Portails, grilles de protection, rampes, garde-corps et clôtures.</p>
-          </div>
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Aluminium et vitrerie</h3>
-            <p class="mt-3 text-stone-600">Fenêtres, portes, baies vitrées coulissantes, balcons vitrés, cloisons, façades et pose de Naco.</p>
-          </div>
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Industrie</h3>
-            <p class="mt-3 text-stone-600">Cuves, tuyauterie industrielle, soudure et montage d'équipements.</p>
-          </div>
-          <div>
-            <h3 class="border-b border-stone-200 pb-2 text-lg font-semibold text-stone-900">Équipements sportifs et bâches</h3>
-            <p class="mt-3 text-stone-600">Paniers et panneaux de basket, poteaux de handball et de volley, bâches, stores et abris de parking.</p>
-          </div>
+    <!-- Méthode -->
+    <section id="methode" class="scroll-mt-20 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="reveal eyebrow">Notre méthode</p>
+          <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl" style="--i:1">Chaque étape validée avec vous</h2>
+        </div>
+        <div class="relative mt-14">
+          <div class="timeline absolute left-0 right-0 top-[7px] hidden h-px bg-stone-200 lg:block" aria-hidden="true"><div class="timeline-fill h-full bg-orange-600"></div></div>
+          <ol class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+          <li class="reveal relative pl-0 lg:pt-10" style="--i:0">
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="text-sm font-semibold text-orange-700">Étape 1</span>
+            <h3 class="mt-1 text-lg font-semibold text-stone-900">Visite et mesures</h3>
+            <p class="mt-2 text-stone-600">Nous venons voir le site, prendre les cotes et comprendre vos contraintes.</p>
+          </li>
+          <li class="reveal relative pl-0 lg:pt-10" style="--i:1">
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="text-sm font-semibold text-orange-700">Étape 2</span>
+            <h3 class="mt-1 text-lg font-semibold text-stone-900">Devis détaillé</h3>
+            <p class="mt-2 text-stone-600">Main-d'œuvre, matériaux et transport chiffrés poste par poste.</p>
+          </li>
+          <li class="reveal relative pl-0 lg:pt-10" style="--i:2">
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="text-sm font-semibold text-orange-700">Étape 3</span>
+            <h3 class="mt-1 text-lg font-semibold text-stone-900">Fabrication</h3>
+            <p class="mt-2 text-stone-600">Découpe, soudure et assemblage en atelier avec notre propre matériel.</p>
+          </li>
+          <li class="reveal relative pl-0 lg:pt-10" style="--i:3">
+            <span class="step-dot" aria-hidden="true"></span>
+            <span class="text-sm font-semibold text-orange-700">Étape 4</span>
+            <h3 class="mt-1 text-lg font-semibold text-stone-900">Pose et réception</h3>
+            <p class="mt-2 text-stone-600">Montage sur site, contrôle avec vous, puis livraison de l'ouvrage.</p>
+          </li>
+          </ol>
         </div>
       </div>
     </section>
 
     <!-- Réalisations -->
-    <section id="realisations" class="scroll-mt-16 bg-stone-50">
-      <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2 class="text-2xl font-bold text-stone-900 sm:text-3xl">Réalisations</h2>
-        <p class="mt-2 text-stone-600">Photos de chantiers réalisés par nos équipes.</p>
-
-        <div class="mt-8 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/charpente-metallique-montage.jpg" alt="Montage d'une charpente métallique, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="623" height="684">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Montage d'une charpente métallique</figcaption>
+    <section id="realisations" class="scroll-mt-20">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:py-28">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div class="max-w-2xl">
+            <p class="reveal eyebrow">Réalisations</p>
+            <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl" style="--i:1">Nos chantiers en images</h2>
+          </div>
+          <p class="reveal text-stone-600" style="--i:2">Touchez une photo pour l'agrandir.</p>
+        </div>
+        <div class="mt-12 grid grid-flow-dense auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:gap-4 md:grid-cols-4">
+          <figure class="gallery-item reveal sm:col-span-2 sm:row-span-2" style="--i:0">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="0" aria-label="Agrandir : Montage d'une charpente métallique">
+              <img src="img/charpente-metallique-montage.jpg" alt="Montage d'une charpente métallique, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="623" height="684">
+              <figcaption class="gallery-caption">Montage d'une charpente métallique</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/entrepot-charpente-termine.jpg" alt="Entrepôt à charpente métallique, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="1152" height="548">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Entrepôt à charpente métallique</figcaption>
+          <figure class="gallery-item reveal" style="--i:1">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="1" aria-label="Agrandir : Entrepôt à charpente métallique">
+              <img src="img/entrepot-charpente-termine.jpg" alt="Entrepôt à charpente métallique, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="1152" height="548">
+              <figcaption class="gallery-caption">Entrepôt à charpente métallique</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/charpente-entrepot-structure.jpg" alt="Structure d'entrepôt, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="593" height="768">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Structure d'entrepôt</figcaption>
+          <figure class="gallery-item reveal" style="--i:2">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="2" aria-label="Agrandir : Structure d'entrepôt">
+              <img src="img/charpente-entrepot-structure.jpg" alt="Structure d'entrepôt, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="593" height="768">
+              <figcaption class="gallery-caption">Structure d'entrepôt</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/chateau-eau-metallique.jpg" alt="Château d'eau métallique, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="733" height="936">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Château d'eau métallique</figcaption>
+          <figure class="gallery-item reveal" style="--i:3">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="3" aria-label="Agrandir : Château d'eau métallique">
+              <img src="img/chateau-eau-metallique.jpg" alt="Château d'eau métallique, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="733" height="936">
+              <figcaption class="gallery-caption">Château d'eau métallique</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/cuve-industrielle.jpg" alt="Cuve industrielle, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="631" height="763">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Cuve industrielle</figcaption>
+          <figure class="gallery-item reveal" style="--i:0">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="4" aria-label="Agrandir : Cuve industrielle">
+              <img src="img/cuve-industrielle.jpg" alt="Cuve industrielle, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="631" height="763">
+              <figcaption class="gallery-caption">Cuve industrielle</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/tuyauterie-industrielle.jpg" alt="Tuyauterie industrielle, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="659" height="677">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Tuyauterie industrielle</figcaption>
+          <figure class="gallery-item reveal" style="--i:1">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="5" aria-label="Agrandir : Tuyauterie industrielle">
+              <img src="img/tuyauterie-industrielle.jpg" alt="Tuyauterie industrielle, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="659" height="677">
+              <figcaption class="gallery-caption">Tuyauterie industrielle</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/soudure-tuyauterie.jpg" alt="Soudure de tuyauterie, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="1113" height="859">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Soudure de tuyauterie</figcaption>
+          <figure class="gallery-item reveal sm:col-span-2" style="--i:2">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="6" aria-label="Agrandir : Soudure de tuyauterie">
+              <img src="img/soudure-tuyauterie.jpg" alt="Soudure de tuyauterie, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="1113" height="859">
+              <figcaption class="gallery-caption">Soudure de tuyauterie</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/soudeur-charpente.jpg" alt="Soudure sur charpente, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="604" height="739">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Soudure sur charpente</figcaption>
+          <figure class="gallery-item reveal" style="--i:3">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="7" aria-label="Agrandir : Soudure sur charpente">
+              <img src="img/soudeur-charpente.jpg" alt="Soudure sur charpente, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="604" height="739">
+              <figcaption class="gallery-caption">Soudure sur charpente</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/immeuble-balcons-vitres.jpg" alt="Balcons vitrés en aluminium, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="447" height="513">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Balcons vitrés en aluminium</figcaption>
+          <figure class="gallery-item reveal" style="--i:0">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="8" aria-label="Agrandir : Balcons vitrés en aluminium">
+              <img src="img/immeuble-balcons-vitres.jpg" alt="Balcons vitrés en aluminium, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="447" height="513">
+              <figcaption class="gallery-caption">Balcons vitrés en aluminium</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/baie-vitree-aluminium.jpg" alt="Baie vitrée coulissante, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="504" height="656">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Baie vitrée coulissante</figcaption>
+          <figure class="gallery-item reveal" style="--i:1">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="9" aria-label="Agrandir : Baie vitrée coulissante">
+              <img src="img/baie-vitree-aluminium.jpg" alt="Baie vitrée coulissante, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="504" height="656">
+              <figcaption class="gallery-caption">Baie vitrée coulissante</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/portes-fenetres-aluminium.jpg" alt="Portes-fenêtres en aluminium, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="650" height="705">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Portes-fenêtres en aluminium</figcaption>
+          <figure class="gallery-item reveal" style="--i:2">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="10" aria-label="Agrandir : Portes-fenêtres en aluminium">
+              <img src="img/portes-fenetres-aluminium.jpg" alt="Portes-fenêtres en aluminium, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="650" height="705">
+              <figcaption class="gallery-caption">Portes-fenêtres en aluminium</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/portail-ferronnerie.jpg" alt="Portails et grilles, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="1200" height="577">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Portails et grilles</figcaption>
+          <figure class="gallery-item reveal" style="--i:3">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="11" aria-label="Agrandir : Portails et grilles">
+              <img src="img/portail-ferronnerie.jpg" alt="Portails et grilles, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="1200" height="577">
+              <figcaption class="gallery-caption">Portails et grilles</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/rampe-escalier.jpg" alt="Rampe d'escalier, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="714" height="680">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Rampe d'escalier</figcaption>
+          <figure class="gallery-item reveal" style="--i:0">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="12" aria-label="Agrandir : Rampe d'escalier">
+              <img src="img/rampe-escalier.jpg" alt="Rampe d'escalier, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="714" height="680">
+              <figcaption class="gallery-caption">Rampe d'escalier</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/stores-bache.jpg" alt="Stores en bâche, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="655" height="677">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Stores en bâche</figcaption>
+          <figure class="gallery-item reveal" style="--i:1">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="13" aria-label="Agrandir : Stores en bâche">
+              <img src="img/stores-bache.jpg" alt="Stores en bâche, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="655" height="677">
+              <figcaption class="gallery-caption">Stores en bâche</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/panier-basket.jpg" alt="Panier de basket, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="765" height="524">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Panier de basket</figcaption>
+          <figure class="gallery-item reveal" style="--i:2">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="14" aria-label="Agrandir : Panier de basket">
+              <img src="img/panier-basket.jpg" alt="Panier de basket, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="765" height="524">
+              <figcaption class="gallery-caption">Panier de basket</figcaption>
+            </button>
           </figure>
-          <figure class="overflow-hidden rounded border border-stone-200 bg-white">
-            <img src="img/charpente-sous-toiture.jpg" alt="Charpente et couverture, réalisation C.T.S." loading="lazy" class="aspect-square w-full object-cover" width="557" height="444">
-            <figcaption class="px-3 py-2 text-sm text-stone-700">Charpente et couverture</figcaption>
+          <figure class="gallery-item reveal" style="--i:3">
+            <button type="button" class="group block h-full w-full text-left" data-lightbox="15" aria-label="Agrandir : Charpente et couverture">
+              <img src="img/charpente-sous-toiture.jpg" alt="Charpente et couverture, réalisation C.T.S." loading="lazy" class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" width="557" height="444">
+              <figcaption class="gallery-caption">Charpente et couverture</figcaption>
+            </button>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- Zone d'intervention -->
-    <section id="zone" class="scroll-mt-16">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-2">
+    <section id="zone" class="scroll-mt-20 bg-white">
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
+        <div class="overflow-hidden rounded-lg">
+          <img data-parallax="0.05" src="img/entrepot-charpente-termine.jpg" alt="Entrepôt à charpente métallique réalisé par C.T.S." loading="lazy" class="aspect-[4/3] w-full scale-[1.08] object-cover" width="1152" height="548">
+        </div>
         <div>
-          <h2 class="text-2xl font-bold text-stone-900 sm:text-3xl">Zone d'intervention</h2>
-          <p class="mt-3 leading-relaxed text-stone-600">
+          <p class="reveal eyebrow">Zone d'intervention</p>
+          <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl" style="--i:1">Partout en Côte d'Ivoire</h2>
+          <p class="reveal mt-5 text-lg leading-relaxed text-stone-600" style="--i:2">
             Notre siège est à Treichville, Avenue 6, Rue 25. Nous intervenons à Abidjan et sur l'ensemble du territoire ivoirien, avec nos véhicules et notre matériel.
           </p>
-        </div>
-        <div class="rounded border border-stone-200 p-6">
-          <h3 class="text-lg font-semibold text-stone-900">Un besoin urgent sur un chantier ?</h3>
-          <p class="mt-2 text-stone-600">Joignez directement le gérant, M. Mocktar Cissé.</p>
-          <div class="mt-5 flex flex-col gap-3 sm:flex-row">
-            <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Ciss%C3%A9%2C%20j%27ai%20un%20besoin%20sur%20un%20chantier%20%3A%20" target="_blank" rel="noopener" class="rounded bg-green-700 px-5 py-3 text-center font-semibold text-white hover:bg-green-800">Écrire sur WhatsApp</a>
-            <a href="tel:+2250707806775" class="rounded border border-stone-300 px-5 py-3 text-center font-semibold text-stone-800 hover:bg-stone-50">Appeler</a>
+          <div class="reveal mt-8 rounded-lg border border-stone-200 bg-[#faf8f5] p-6" style="--i:3">
+            <h3 class="text-lg font-semibold text-stone-900">Un besoin urgent sur un chantier ?</h3>
+            <p class="mt-1 text-stone-600">Joignez directement le gérant, M. Mocktar Cissé.</p>
+            <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a href="https://wa.me/2250707806775?text=Bonjour%20M.%20Ciss%C3%A9%2C%20j%27ai%20un%20besoin%20sur%20un%20chantier%20%3A%20" target="_blank" rel="noopener" class="btn-whatsapp">Écrire sur WhatsApp</a>
+              <a href="tel:+2250707806775" class="btn-outline">Appeler</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="scroll-mt-16 bg-stone-900 text-white">
-      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-5">
+    <section id="contact" class="scroll-mt-20">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-5 lg:py-28">
         <div class="lg:col-span-2">
-          <h2 class="text-2xl font-bold sm:text-3xl">Demander un devis</h2>
-          <p class="mt-3 leading-relaxed text-stone-300">
+          <p class="reveal eyebrow">Contact</p>
+          <h2 class="reveal mt-3 text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl" style="--i:1">Demander un devis</h2>
+          <p class="reveal mt-5 leading-relaxed text-stone-600" style="--i:2">
             Décrivez votre besoin. Votre demande s'ouvre dans WhatsApp, prête à être envoyée au gérant. Nous vous répondons en général sous 48 heures.
           </p>
-          <dl class="mt-8 space-y-4 text-sm">
+          <dl class="reveal mt-8 space-y-5 text-sm" style="--i:3">
             <div>
-              <dt class="text-stone-400">Téléphone et WhatsApp</dt>
-              <dd><a href="tel:+2250707806775" class="text-lg font-semibold hover:underline">+225 07 07 80 67 75</a></dd>
+              <dt class="text-stone-500">Téléphone et WhatsApp</dt>
+              <dd><a href="tel:+2250707806775" class="text-lg font-semibold text-stone-900 hover:text-orange-700">+225 07 07 80 67 75</a></dd>
             </div>
             <div>
-              <dt class="text-stone-400">E-mail (cahiers des charges, appels d'offres)</dt>
-              <dd><a href="mailto:contact@cissetravaux.com" class="font-semibold hover:underline">contact@cissetravaux.com</a></dd>
+              <dt class="text-stone-500">E-mail (cahiers des charges, appels d'offres)</dt>
+              <dd><a href="mailto:contact@cissetravaux.com" class="font-semibold text-stone-900 hover:text-orange-700">contact@cissetravaux.com</a></dd>
             </div>
             <div>
-              <dt class="text-stone-400">Siège</dt>
-              <dd>Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68<br>05 BP 432 Abidjan 05</dd>
+              <dt class="text-stone-500">Siège</dt>
+              <dd class="text-stone-800">Treichville, Avenue 6, Rue 25, Lot 573 A, Ilot 68<br>05 BP 432 Abidjan 05</dd>
             </div>
           </dl>
         </div>
 
-        <form id="quoteForm" class="space-y-4 rounded bg-white p-5 text-stone-800 sm:p-6 lg:col-span-3" novalidate>
+        <form id="quoteForm" class="reveal space-y-4 rounded-lg bg-white p-5 text-stone-800 shadow-[0_24px_48px_-24px_rgba(28,25,23,0.25)] ring-1 ring-stone-200 sm:p-8 lg:col-span-3" style="--i:2" novalidate>
           <div class="grid gap-4 sm:grid-cols-2">
             <div>
               <label for="q-name" class="label">Nom et prénom *</label>
@@ -303,12 +412,29 @@
             <textarea id="q-desc" class="field" rows="4" required placeholder="Dimensions, matériaux souhaités, délais, contraintes du site…"></textarea>
           </div>
           <p id="q-error" class="hidden text-sm text-red-700" role="alert">Merci de remplir les champs marqués d'un astérisque.</p>
-          <button type="submit" class="w-full rounded bg-green-700 py-3 font-semibold text-white hover:bg-green-800">Envoyer la demande par WhatsApp</button>
+          <button type="submit" class="btn-whatsapp w-full py-3.5">Envoyer la demande par WhatsApp</button>
           <p class="text-xs text-stone-500">Vos informations servent uniquement à traiter votre demande (voir « Confidentialité » en bas de page).</p>
         </form>
       </div>
     </section>
   </main>
+
+  <!-- Visionneuse -->
+  <dialog id="lightbox" class="lightbox" aria-label="Photo agrandie">
+    <figure class="flex h-full w-full flex-col items-center justify-center gap-3 p-4">
+      <img id="lbImg" src="" alt="" class="max-h-[80vh] max-w-full rounded object-contain">
+      <figcaption id="lbCap" class="text-center text-sm text-stone-200"></figcaption>
+    </figure>
+    <button type="button" class="lb-btn right-3 top-3" data-lb="close" aria-label="Fermer">
+      <svg viewBox="0 0 20 20" class="h-5 w-5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="lb-btn left-3 top-1/2 -translate-y-1/2" data-lb="prev" aria-label="Photo précédente">
+      <svg viewBox="0 0 20 20" class="h-5 w-5" aria-hidden="true"><path d="M12 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button type="button" class="lb-btn right-3 top-1/2 -translate-y-1/2" data-lb="next" aria-label="Photo suivante">
+      <svg viewBox="0 0 20 20" class="h-5 w-5" aria-hidden="true"><path d="M8 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </dialog>
 
   <!-- Pied de page -->
   <footer class="border-t border-stone-200 bg-white text-sm text-stone-600">
@@ -355,47 +481,6 @@
     <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
   </a>
 
-  <script>
-    (function () {
-      var WHATSAPP = "2250707806775";
-
-      var btn = document.getElementById("menuBtn");
-      var menu = document.getElementById("mobileMenu");
-      btn.addEventListener("click", function () {
-        var open = menu.classList.toggle("hidden") === false;
-        btn.setAttribute("aria-expanded", String(open));
-      });
-      menu.addEventListener("click", function (e) {
-        if (e.target.tagName === "A") { menu.classList.add("hidden"); btn.setAttribute("aria-expanded", "false"); }
-      });
-
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      var form = document.getElementById("quoteForm");
-      var error = document.getElementById("q-error");
-      var val = function (id) { return document.getElementById(id).value.trim(); };
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var invalid = Array.prototype.find.call(form.querySelectorAll("[required]"), function (f) { return !f.value.trim(); });
-        if (invalid) { error.classList.remove("hidden"); invalid.focus(); return; }
-        error.classList.add("hidden");
-
-        var lines = [
-          "Bonjour M. Cissé, je souhaite un devis.",
-          "",
-          "Travaux : " + val("q-type"),
-          "Ville du chantier : " + val("q-city"),
-          "Description : " + val("q-desc"),
-          "",
-          "Nom : " + val("q-name"),
-          val("q-company") ? "Entreprise : " + val("q-company") : null,
-          "Téléphone : " + val("q-phone")
-        ].filter(function (l) { return l !== null; });
-
-        window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
-      });
-    })();
-  </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
